@@ -2,6 +2,7 @@
 var cCardObject = function(data) {
     if (data) {
         this.id = data.id;
+        this.$el;
         this.name = data.name;
         this.surf = data.surf;
         this.popu = data.popu;

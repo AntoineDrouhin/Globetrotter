@@ -31,7 +31,6 @@ function main() {
 
     redrawBoard();
 
-	console.log(terrain[0].getHtml());	
 
 /*
     pioche = remplirPioche(cartes);
@@ -116,7 +115,7 @@ function redrawPlayer(joueur){
        	console.log(joueur);
         for(i ; i < joueur.length ; i++){
             var carteJoueur = "<div id='carte'" + i + ">";
-            carteJoueur.append(joueur[i].getHtml);
+            carteJoueur.append(joueur[i].getHtml());
             carteJoueur.append("</div>");            
         } 
             $("#cartesJoueur").html(carteJoueur);
@@ -127,9 +126,9 @@ function redrawPlayer(joueur){
 
 function redrawBoard(){
 	console.log("Debut redrawBoard");
-	int i;
+	var i;
 	for(i = 0; i < terrain.length; i++) {
-    	$("#plateau").html(terrain[i].getHtml);
+    	$("#plateau").html(terrain[i].getHtml());
 	}
 }
 
