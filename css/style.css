@@ -1,0 +1,93 @@
+
+/* 
+ * Feuille de style de la page index.html du site Boxing Mania
+ */
+
+
+/*************** AJUSTEMENTS BOOTSTRAP ***************************/
+
+
+/*
+ *Evite que la navbar recouvre le début du texte
+ */
+body {
+	padding-top: 70px;
+}
+
+.page-header {
+	margin-top: 0;
+}
+
+.panel-body {
+	padding-top: 0;
+}
+
+.regulated-size {
+	width: 65%;
+}
+
+body {
+	background-color: lightblue;
+}
+
+.active,
+.navbar-brand,
+.navbar-inverse {
+	background-color: #00507F;
+	color: #FF8E34;
+}
+
+.centrage
+{
+	text-align: center;
+}
+
+.adroite
+{
+	text-align: right;
+	padding-right: 10%;
+}
+
+#boxeur
+{
+	margin-bottom: 3%;
+}
+
+.bleuclair {
+	background-color: #9CE3FF;
+	border-radius: 5%;
+	padding-top: 2%;
+	border: 2px white solid;
+	min-height: 375px;
+}
+
+
+.panel {
+border-radius: 10px;
+background-color: #F6FEFE;
+}
+
+.souligne {
+	text-decoration: underline;
+}
+
+.modifpadding {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
