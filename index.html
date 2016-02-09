@@ -1,204 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <title>RunningBackup</title>
-        <meta charset="utf-8" />
+	<head>
 
-        <!-- Added Responsive Design to Bootstrap -->
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Cardline Globetrotter</title>
+		<meta charset="utf-8" />
 
-        <!-- Stylesheet -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
-    <body>
-            <!-- Top NAVBAR -->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                    <!-- Titre de la page -->
-                <a href="#" class="navbar-brand">Running Backer</a>
-                    <!-- Bouton de remplacement du menu  -->
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+		<!-- Added Responsive Design to Bootstrap -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                    <!-- Items du menu -->
-                <div class="collapse navbar-collapse navHeaderCollapse ">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" >Calcul-Vitesse-Moyenne</a></li>
-                        <li><a href="#">Calcul-des-allures</a></li>
-                        <li><a href="#">Représentation-des-allures</a></li>
-                        <li><a href="#contact" data-toggle="modal">Contact</a></li>
-                    </ul>
-                </div>
-             </div>
-        </nav>
-    
-            <!-- BODY -->
-        <form class="pure-form" onsubmit="CalculVitesse(this.distancetemps.value, this.tempshr.value, this.tempsmin.value, this.tempssec.value);
-                                    return false" action="">
-                                <fieldset>
-                                    <legend>Calcul de vitesse moyenne</legend>
-                                    <table>
-                                        <tr>
-                                            <td><strong>Distance de la course : </strong></td>
-                                            <td><input type="text" size="4" name="distancetemps" value="0"> mètre(s)</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Temps effectué : </strong></td>
-                                            <td><input type="text" size="4" name="tempshr" value="0"> heures <input type="text" size="4" name="tempsmin" value="0"> min <input type="text" size="4" name="tempssec" value="0"> sec</td>
-                                        </tr>                                        
-                                    </table>
-                                    <br/>
-                                    <div>
-                                        <input class="pure-button pure-button-primary" type="submit" value=" Calculer" onfocus="this.blur();">
-                                    </div>
-                                    <br/>
-                                    <table class="pure-table pure-table-horizontal">
-                                        <tr class="pure-table-odd">
-                                            <td class="title"><span>Vitesse moyenne : </span></td>
-                                            <td class="title"><span class="couleur f_disabled" id="AfficheVitesseMoyenne">14.01</span>&nbsp;km/h</td>
-                                        </tr>
-                                        <tr class="pure-table-odd">
-                                            <td class="title">Temps moyen au km : </td>
-                                            <td class="title"><span class="couleur f_disabled" id="AfficheTempKilometremin">4</span>&nbsp;min <span class="couleur" id="AfficheTempKilometresec">17</span>&nbsp;sec</td>
-                                        </tr>
-                                    </table>
-                                </fieldset>
-                            </form>
-                            <div>
-                                <form class="pure-form" name="form_allure" id="form_allure">
-
-                                    <fieldset>
-                                        <legend>Calcul des allures</legend>
-                                        <table>
-                                            <tr>
-                                                <td><strong>Distance de la course : </strong></td>
-                                                <td><input type="text" value="10" name="f_distance">Km</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Chronomètre visé : </strong></td>
-                                                <td><input type="text" value="0" name="f_chronoHeure"><label style="margin:0 15px 0 0">Heu</label>
-                                                    <input type="text" value="42" name="f_chronoMinute"><label style="margin:0 15px 0 0">Min</label>
-                                                    <input type="text" value="50" name="f_chronoSeconde"><label>Sec</label></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div id="votre_allure">
-                                                        <strong>Allure spécifique : </strong>
-
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" value="13.33" name="f_allure" disabled="disabled" class="f_disabled"><label style="margin:0 15px 0 0">km/h</label>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div id="votre_vma">
-                                                        <strong>Vitess max. aérobie :</strong>                                            
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" value="16.66" name="f_VMA" disabled="disabled" class="f_disabled"><label style="margin:0 15px 0 0">km/h</label>
-                                                </td>
-                                            </tr>
+		<!-- Stylesheet -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
 
 
-                                            <tr>
-                                                <td>
-                                                    <div id="votre_vma">
-                                                        <div id="votre_pourc">
-                                                            <strong>Pourcentage appliqué : </strong>
-                                                            
-                                                        </div>                                         
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" value="80" name="f_pourcApp" disabled="disabled" class="f_disabled"><label>%</label>
-                                                </td>
-                                            </tr>
+	</head>
 
-                                        </table>   
-                                        <br/>
-                                        <input type="button" class="pure-button pure-button-primary" style="margin: 0;" onclick="javascript:calcul();" value="Calculer" class="calculer">
-                                    </fieldset>
-                                    <br>
-                                    <fieldset>
-                                        <legend>Représentation des allures</legend>
-                                        <div id="pourcAppVMA">
-                                            <h2>Pourcentage appliqué pour calcul de la VMA</h2>
-                                            <label>Inférieur à 30 min</label><input type="text" value="93" name="f_pourcAppVMA_1"><br>
-                                            <label>Entre 31 et 45 min</label><input type="text" value="87" name="f_pourcAppVMA_2"><br>
-                                            <label>Entre 46 min et 1h00</label><input type="text" value="85" name="f_pourcAppVMA_3"><br>
-                                            <label>Entre 1h01 et 1h30</label><input type="text" value="80" name="f_pourcAppVMA_4"><br>
-                                            <label>Entre 1h31 et 2h00</label><input type="text" value="80" name="f_pourcAppVMA_5"><br>
-                                            <label>Entre 2h01 et 2h30</label><input type="text" value="78" name="f_pourcAppVMA_6"><br>
-                                            <label>Entre 2h31 et 3h00</label><input type="text" value="76" name="f_pourcAppVMA_7"><br>
-                                            <label>Entre 3h01 et 3h30</label><input type="text" value="75" name="f_pourcAppVMA_8"><br>
-                                            <label>3h01 et plus</label><input type="text" value="70" name="f_pourcAppVMA_9"><br>
-                                        </div>
-                                        <div id="alluresVMA">
-                                            <h2>Calcul des allures VMA</h2>
-                                            <label>30 sec à</label><input type="text" value="105" name="f_alluresVMA_11">% <input type="text" value="146" name="f_alluresVMA_12" disabled="disabled" class="f_disabled"> m<br>
-                                            <label>200 m à</label><input type="text" value="105" name="f_alluresVMA_21">% <input type="text" value="41" name="f_alluresVMA_22" disabled="disabled" class="f_disabled"> sec<br>
-                                            <br>
-                                            <label>30 sec à</label><input type="text" value="100" name="f_alluresVMA_31">% <input type="text" value="138" name="f_alluresVMA_32" disabled="disabled" class="f_disabled"> m<br>
-                                            <label>45 sec à</label><input type="text" value="100" name="f_alluresVMA_41">% <input type="text" value="208" name="f_alluresVMA_42" disabled="disabled" class="f_disabled"> m<br>
-                                            <label>60 sec à</label><input type="text" value="100" name="f_alluresVMA_51">% <input type="text" value="278" name="f_alluresVMA_52" disabled="disabled" class="f_disabled"> m<br>
-                                            <br>
-                                            <label>300 m à</label><input type="text" value="95" name="f_alluresVMA_61">% <input type="text" value="69" name="f_alluresVMA_62" disabled="disabled" class="f_disabled"> sec<br>
-                                            <label>400 m à</label><input type="text" value="95" name="f_alluresVMA_71">% <input type="text" value="98" name="f_alluresVMA_72" disabled="disabled" class="f_disabled"> sec<br>
-                                            <label>500 m à</label><input type="text" value="95" name="f_alluresVMA_81">% <input type="text" value="113" name="f_alluresVMA_82" disabled="disabled" class="f_disabled"> sec<br>
-                                            <label>600 m à</label><input type="text" value="93" name="f_alluresVMA_91">% <input type="text" value="139" name="f_alluresVMA_92" disabled="disabled" class="f_disabled"> sec<br>
-                                        </div>
-                                        <br class="clear">
-                                        <div id="alluresSPE">
-                                            <h2>Calcul allure spécifique</h2>
-                                            <div id="alluresSPE1">
-                                                <label>500 m</label><input type="text" value="2" name="f_alluresSPE_11" disabled="disabled" class="f_disabled">min <input type="text" value="15" name="f_alluresSPE_12" disabled="disabled" class="f_disabled">sec<br>
-                                                <label>1000 m</label><input type="text" value="4" name="f_alluresSPE_21" disabled="disabled" class="f_disabled">min <input type="text" value="30" name="f_alluresSPE_22" disabled="disabled" class="f_disabled">sec<br>
-                                                <br>
-                                                <label>1500 m </label><input type="text" value="6" name="f_alluresSPE_31" disabled="disabled" class="f_disabled">min <input type="text" value="45" name="f_alluresSPE_32" disabled="disabled" class="f_disabled">sec<br>
-                                                <label>2000 m </label><input type="text" value="9" name="f_alluresSPE_41" disabled="disabled" class="f_disabled">min <input type="text" value="0" name="f_alluresSPE_42" disabled="disabled" class="f_disabled">sec<br>
-                                                <label>2500 m </label><input type="text" value="11" name="f_alluresSPE_51" disabled="disabled" class="f_disabled">min <input type="text" value="15" name="f_alluresSPE_52" disabled="disabled" class="f_disabled">sec<br>
-                                                <br>
-                                                <label>3000 m </label><input type="text" value="13" name="f_alluresSPE_61" disabled="disabled" class="f_disabled">min <input type="text" value="30" name="f_alluresSPE_62" disabled="disabled" class="f_disabled"> sec<br>
-                                                <label>4000 m </label><input type="text" value="18" name="f_alluresSPE_71" disabled="disabled" class="f_disabled">min <input type="text" value="0" name="f_alluresSPE_72" disabled="disabled" class="f_disabled"> sec<br>
-                                                <label>5000 m </label><input type="text" value="22" name="f_alluresSPE_81" disabled="disabled" class="f_disabled">min <input type="text" value="30" name="f_alluresSPE_82" disabled="disabled" class="f_disabled"> sec<br>
-                                                <label>6000 m </label><input type="text" value="27" name="f_alluresSPE_91" disabled="disabled" class="f_disabled">min <input type="text" value="0" name="f_alluresSPE_92" disabled="disabled" class="f_disabled"> sec<br>
-                                                <label>7000 m </label><input type="text" value="31" name="f_alluresSPE_101" disabled="disabled" class="f_disabled">min <input type="text" value="30" name="f_alluresSPE_102" disabled="disabled" class="f_disabled"> sec<br>
-                                                <label>8000 m </label><input type="text" value="36" name="f_alluresSPE_111" disabled="disabled" class="f_disabled">min <input type="text" value="1" name="f_alluresSPE_112" disabled="disabled" class="f_disabled"> sec<br>
-                                                <label>9000 m </label><input type="text" value="40" name="f_alluresSPE_121" disabled="disabled" class="f_disabled">min <input type="text" value="31" name="f_alluresSPE_122" disabled="disabled" class="f_disabled"> sec<br>
-                                                <label>10000 m</label><input type="text" value="45" name="f_alluresSPE_131" disabled="disabled" class="f_disabled">min <input type="text" value="1" name="f_alluresSPE_132" disabled="disabled" class="f_disabled"> sec<br>
-                                            </div>
-                                            <div id="alluresSPE2">
-                                                <label>5 min </label><input type="text" value="1111" name="f_alluresSPE_14" disabled="disabled" class="f_disabled">m<br>
-                                                <label>6 min </label><input type="text" value="1333" name="f_alluresSPE_15" disabled="disabled" class="f_disabled">m<br>
-                                                <label>7 min </label><input type="text" value="1555" name="f_alluresSPE_16" disabled="disabled" class="f_disabled">m<br>
-                                                <label>8 min </label><input type="text" value="1777" name="f_alluresSPE_17" disabled="disabled" class="f_disabled">m<br> 
-                                                <label>9 min </label><input type="text" value="1999" name="f_alluresSPE_18" disabled="disabled" class="f_disabled">m<br>
-                                                <label>10 min</label><input type="text" value="2221" name="f_alluresSPE_19" disabled="disabled" class="f_disabled">m<br>
-                                            </div>
-                                        </div>
-                                        <br class="clear">
-                                        
-                                    </fieldset>
-                                </form>
-                            </div>
-                            <script type="text/javascript">
-                                calcul();
-                            </script>		</div>
+	<body>
+		
 
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
+					<!-- Top NAVBAR -->
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+						<!-- Titre de la page -->
+					<a href="#" class="navbar-brand">Cardline Globetrotter</a>
+						
+						<!-- Bouton de remplacement du menu  -->
+						<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+						<!-- Items du menu -->
+					<div class="collapse navbar-collapse navHeaderCollapse ">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#" >Home</a></li>
+							<li><a href="#">Règles du jeu</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+						<!-- Contenu sur les boxeurs -->
+			<div class="container">
+				<div class="row">
+                
+                <!-- Plateau de jeu -->
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="panel-header">
+								<h3 id="boxeur" >Plateau de jeu</h3>
+							</div>
+							<div class="col-xs-12">
+								<div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="carte" id=""></div>
+                                </div>
+							</div>		
+								
+						</div>
+					</div>
+                    
+                    
+                    <!-- Mes cartes -->
+                    <div class="panel panel-default">
+						<div class="panel-body">
+							<div class="panel-header">
+								<h3 id="boxeur" >Mes cartes</h3>
+							</div>
+
+							<div class="col-xs-12">
+								
+							</div>		
+								
+						</div>
+					</div>
+                    
+				</div>
+			</div>
+
+
+		<!-- Querry needed by bootstrap -->
+   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<script src="js/bootstrap.min.js"></script>
+		
+	</body>
+</html>
