@@ -11,7 +11,6 @@
 		<!-- Stylesheet -->
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
-		
 
 
 	</head>
@@ -54,51 +53,7 @@
 								<h3 id="boxeur" >Plateau de jeu</h3>
 							</div>
 							<div class="col-xs-12">
-                                <div class="col-xs-1 text-center">
-                                    <div class="glyphicon glyphicon-upload"></div>
-                                </div>
-								<div class="col-xs-3">
-                                    <div class="carte"></div>
-                                </div>
-                                
-                                <div class="col-xs-1 text-center">
-                                    <div class="glyphicon glyphicon-upload"></div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <div class="carte"></div>
-                                </div>
-                                
-                                <div class="col-xs-1 text-center">
-                                    <div class="glyphicon glyphicon-upload"></div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <div class="carte"></div>
-                                </div>
-                                
-                                <div class="col-xs-1 text-center">
-                                    <div class="glyphicon glyphicon-upload"></div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <div class="carte"></div>
-                                </div>
-                                
-                                <div class="col-xs-1 text-center">
-                                    <div class="glyphicon glyphicon-upload"></div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <div class="carte"></div>
-                                </div>
-                                
-                                <div class="col-xs-1 text-center">
-                                    <div class="glyphicon glyphicon-upload"></div>
-                                </div>
-                                <div class="col-xs-3">
-                                    <div class="carte"></div>
-                                </div>
-                                
-                                <div class="col-xs-1 text-center">
-                                    <div class="glyphicon glyphicon-upload"></div>
-                                </div>
+                                <div id="plateau"></div>
                                 
 							</div>		
 								
@@ -127,60 +82,11 @@
 				</div>
 			</div>
 
-			<div id="TEAMPLATE_CARD_HTML">
-			 <div class="c-card">
-			    <div class="c-header"></div>
-			    <div class="c-data">
-			        <table>
-			            <tr>
-			                <td>PIB : </td>
-			                <td>
-			                    <div class="c-pib"></div>
-			                </td>
-			            </tr>
-			            <tr>
-			                <td>Pollution : </td>
-			                <td>
-			                    <div class="c-polu"></div>
-			                </td>
-			            </tr>
-			            <tr>
-			                <td>Surface : </td>
-			                <td>
-			                    <div class="c-surf"></div>
-			                </td>
-			            </tr>
-			            <tr>
-			                <td>Population : </td>
-			                <td>
-			                    <div class="c-popu"></div>
-			                </td>
-			            </tr>
-			        </table>     
-			    </div>
-			 </div>
-			</div>
+
 		<!-- Querry needed by bootstrap -->
    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	<!-- Include all compiled plugins (below), or include individual files as needed -->
     	<script src="js/bootstrap.min.js"></script>
-    	<script src="js/GlobeTroteur.js"></script>
-    			<script type='text/javascript'>
-			$(document).ready(function() {
-				main();	
-				var data = {
-						id : 1,
-						name : "Brésil",
-						surf : 8511965,
-						popu : 205716890,
-						polu : 2.3,
-						pib  : 251800
-					}
-
-				var card = new cCardObject(data);
-				$("body").append(card.getHtml());					
-			})
-		</script>
 		
 	</body>
 </html>
