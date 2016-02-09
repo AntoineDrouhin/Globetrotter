@@ -367,8 +367,6 @@ actualiserAffichage(joueur1);
 
 function main(){
 
->>>>>>> je suis anis
-
 
     // initialisation du terrain
     var terrain = [];
