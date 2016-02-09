@@ -415,5 +415,13 @@ function actualiserAffichage(){
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+function testfinpartie() {
+    for(int i = 0; i<LesJoueurs.length; i++){
+        if (typeof LesJoueurs[i] !== 'undefined' && LesJoueurs[i].length <= 0) {
+            return(i);
+    }
+    return (-1);
 }
+
 
