@@ -63,8 +63,23 @@ function distribuer4Cartes(){
 		}
 }
 
-function insererCarte(positionSurTerrain, carteJoueur){
-	terrain.splice(positionSurTerrain,0,carteJoueur);
+function jouerCarte(numéroJoueur, numéroCarteJoué, positinJoué){
+	//b est un Boolean
+	var b = isOk(numéroJoueur, numéroCarteJoué, positinJoué);
+	if(b){		
+		//ajoute sur le terrain
+		terrain.splice(positinJoué,0,lesJoueurs[numéroJoueur][numéroCarteJoué]);
+		//supprime de la main du joueur
+		lesJoueurs[numéroJoueur].splice(numéroCarteJoué,1);		
+	}
+	else{
+		//Todo quand le joueur à perdu
+	}
+}
+
+// retourne TRUE si il a bien placé ça carte. FALSE sinon
+function isOk(positionSurTerrain, carteJoueur){
+	// TODO
 }
 
 function actualiserAffichage(){
