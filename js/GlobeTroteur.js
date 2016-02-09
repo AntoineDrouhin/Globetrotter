@@ -63,8 +63,8 @@ function distribuer4Cartes(){
 		}
 }
 
-function insererCarte(positionSurTerrain, positionCarteJoueur){
-	terrain.splice(positionSurTerrain,0,positionCarteJoueur);
+function insererCarte(positionSurTerrain, carteJoueur){
+	terrain.splice(positionSurTerrain,0,carteJoueur);
 }
 
 function actualiserAffichage(){
