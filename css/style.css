@@ -92,6 +92,7 @@ background-color: #F6FEFE;
     #TEAMPLATE_CARD_HTML{
         display : none;
     }
+
     .c-card{
         width: 200px;
         height: 200px;
@@ -117,8 +118,14 @@ background-color: #F6FEFE;
         padding : 5px;
     }
 
-.glyphicon-upload:hover {
+    .glyphicon-upload:hover {
     text-shadow: 0 0 12px #0066FF;
+
+    .cartespan{
+        margin: 5px;
+
+    }
+
 }
 
 
