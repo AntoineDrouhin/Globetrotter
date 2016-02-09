@@ -240,7 +240,6 @@ cCardObject.prototype.getHtml =  function() {
             polu : 3,
             pib  : 231900
     },
-
     {
             id   :  25,
             name : "Alemagne",
@@ -341,15 +340,34 @@ cCardObject.prototype.getHtml =  function() {
     }
 ];
 
+// Initialisation des joueurs
+var joueur1 = [4];
+var joueur2 = [4];
+var joueur3 = [4];
+var joueur4 = [4];
+var lesJoueurs = [joueur1,joueur2,joueur3,joueur4];
+
 var pioche = [];
 function main() {
 
-    // Initialisation des joueurs
-    var joueur1 = [4];
-    var joueur2 = [4];
-    var joueur3 = [4];
-    var joueur4 = [4];
-    var lesJoueurs = [joueur1,joueur2,joueur3,joueur4];
+// test avec une carte
+  var data = {
+            id : 3,
+            name : "France",
+            surf : 196190,
+            popu : 12969606,
+            polu : 0.4,
+            pib  : 14700
+        }
+
+var card = new cCardObject(data);
+joueur1.append(card);
+actualiserAffichage(joueur1);
+
+
+function main(){
+
+>>>>>>> je suis anis
 
 
     // initialisation du terrain
@@ -406,9 +424,25 @@ function isOk(positionSurTerrain, carteJoueur){
 	// TODO
 }
 
-function actualiserAffichage(){
+function actualiserAffichage(joueur){
+        var i;
+       
+        for(i ; i < joueur.length ; i++){
+            var carteJoueur = "<div id='carte'" + i + ">";
+            carteJoueur.append(joueur[i].getHtml);
+            carteJoueur.append("</div>");
+            $("#cartesJoueur").append(carteJoueur);
+
+            // initailisation du terrain
+            
+        } 
 
 }
+
+function actualiserPlateau(){
+     $("#plateau").html(terrain.getHtml);
+}
+
 
 // On renvoie un entier aléatoire entre une valeur min (incluse)
 // et une valeur max (exclue).
