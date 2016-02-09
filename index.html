@@ -84,25 +84,16 @@
 
 
 		<!-- Querry needed by bootstrap -->
-   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	<!-- Include all compiled plugins (below), or include individual files as needed -->
-    	<script src="js/bootstrap.min.js"></script>
-    	    	<script src="js/GlobeTroteur.js"></script>
+    	<script type='text/javascript' src="js/bootstrap.min.js"></script>
+    	<script type='text/javascript' src="js/cCardObject.js"></script>
+    	<script type='text/javascript' src="js/cards.js"></script>
+    	<script type='text/javascript' src="js/GlobeTroteur.js"></script>
     	<script type='text/javascript'>
 			$(document).ready(function() {
 				main();	
-				var data = {
-						id : 1,
-						name : "Brésil",
-						surf : 8511965,
-						popu : 205716890,
-						polu : 2.3,
-						pib  : 251800
-					}
-
-				var card = new cCardObject(data);
-				$("body").append(card.getHtml());					
-			})
+			});
 		</script>
 		
 	</body>
