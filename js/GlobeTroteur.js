@@ -61,11 +61,10 @@ function distribuer4Cartes(){
 		for(j=0;j<=4;j++){
 			distributionCarte(lesJoueurs[i]);
 		}
-
 }
 
-function insererCarte(position, id){
-
+function insererCarte(positionSurTerrain, positionCarteJoueur){
+	terrain.splice(positionSurTerrain,0,positionCarteJoueur);
 }
 
 function actualiserAffichage(){
