@@ -13,9 +13,6 @@
 body {
 	padding-top: 70px;
 }
-#ban{
-	background: url(../img/ban.jpg);
-}
 
 .page-header {
 	margin-top: 0;
@@ -36,7 +33,7 @@ body {
 .active,
 .navbar-brand,
 .navbar-inverse {
-	background-color: #00507F;
+	background: url(../img/ban.jpg);
 	color: #FF8E34;
 }
 
@@ -75,13 +72,17 @@ background-color: #F6FEFE;
 }
 
 .carte{
-    width:100%;
+    width:92%;
     height: 200px;
     border:solid 2px black;
     margin: 10px;
     padding: 5px;
 }
 
+.glyphicon-upload {
+    font-size: 40px;
+    padding-top: 100%;
+}
 
 
 
@@ -115,6 +116,11 @@ background-color: #F6FEFE;
     .c-card .c-data  div{
         padding : 5px;
     }
+
+.glyphicon-upload:hover {
+    text-shadow: 0 0 12px #0066FF;
+}
+
 
 
 
