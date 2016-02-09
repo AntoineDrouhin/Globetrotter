@@ -13,6 +13,9 @@
 body {
 	padding-top: 70px;
 }
+#ban{
+	background: url(../img/ban.jpg);
+}
 
 .page-header {
 	margin-top: 0;
