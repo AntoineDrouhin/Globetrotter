@@ -25,6 +25,7 @@ function main() {
 
 
     distribuerCarte(terrain);
+	
 	console.log(terrain[0].getHtml());	
 	console.log(terrain[0]);
 
@@ -126,7 +127,10 @@ function redrawPlayer(joueur){
 
 function redrawBoard(){
 	console.log("Debut redrawBoard");
-     $("#plateau").html(terrain.getHtml);
+	int i;
+	for(i = 0; i < terrain.length; i++) {
+    	$("#plateau").html(terrain[i].getHtml);
+	}
 }
 
 
