@@ -200,6 +200,33 @@ function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcompare
 }
 
 
+/*
+ *	Parse un id de fleche ou de car et retourne juste l'entier
+ */
+function parseID(id){
+	if(id.substring(0,3) == "car"){
+		if(id.length == 7){
+			return id.substring(6,7)
+		}
+		if(id.length == 8){
+			return id.substring(6,8)
+		}
+		if(id.length == 9){
+			return id.substring(6,9)
+		}
+	}
+	if(id.substring(0,3) == "fle"){
+		if(id.length == 8){
+			return id.substring(7,8)
+		}
+		if(id.length == 9){
+			return id.substring(7,9)
+		}
+		if(id.length == 10){
+			return id.substring(7,10)
+		}
+	}
+}
 
 /*
  *	Rafraichis l'affichage du joueur, prend en parametre le numero du joueur (0-3)
