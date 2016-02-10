@@ -47,20 +47,24 @@ function onClickFleche(id){
 }
 
 function onClickCarte(id){
-	ifCarteClique = id;
+	idCarteClique = id;
 	console.log("ID Carte cliqué : " + id);
 }
 
-function onValidation(){
 
+function onValidation(){
+	console.log("Debut Validation : \nidCarteClique : " + idCarteClique +"\nidFleche : " + idFleche +"\ncarteGauche : " + carteGaucheDeLaFleche +"\ncarteDroite : " + carteDroiteDeLaFleche);
 	// Si le mec n'a pas encore défini de fleche de gauche et de droite
-	if(idCarteClique != undefined || idFleche != undefined){
+	if(idCarteClique == undefined || idFleche == undefined){
 		return 0;
 	}
 
 	var testGauche = testSiLaMiseEstBonne(carteGaucheDeLaFleche , carteJoueur, caracteristiqueAcomparer);
+	console.log("Test Gauche : " + testGauche);
+
 	var testDroite = testSiLaMiseEstBonne(carteJoueur, carteDroiteDeLaFleche , caracteristiqueAcomparer);
-    
+    console.log("Test Droite : " + testDroite);
+
     	//SI LA MISE EST BONNE.
     if(testGauche && testDroite) {
     	displayGood();
@@ -197,7 +201,9 @@ function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcompare
 
 
 
-
+/*
+ *	Rafraichis l'affichage du joueur, prend en parametre le numero du joueur (0-3)
+ */
 function redrawPlayer(numJoueur){
         var i;
      //  	console.log("redrawPlayer");
@@ -213,6 +219,10 @@ function redrawPlayer(numJoueur){
         $('#cartesJoueur .c-card').click(function(){onClickCarte($(this).attr("id"));});
 }
 
+
+/*
+ *	Rafraichis l'affichage du terrain en fonction du contenu de l'array "terrain"
+ */
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
 	var i = 0;
@@ -224,14 +234,17 @@ function redrawBoard(){
 	$('.flechesInsertion').click(function(){onClickFleche($(this).attr("id"));});
 }
 
-// On renvoie un entier aléatoire entre une valeur min (incluse)
-// et une valeur max (exclue).
+/*
+ *	On renvoie un entier aléatoire entre une valeur min (incluse) et une valeur max (exclue).
+ */
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
 
-
+/*
+ *	
+ */
 function testfinpartie() {
 	var i;
     for(i = 0; i<JoueursTab.length; i++){
