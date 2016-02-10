@@ -19,13 +19,11 @@ var caracteristiqueAcomparer = "popu";
 
 function main() {
     var i;
-    console.log(cartes);
+    // remplie la pioche n
     pioche = remplirPioche(cartes);
-    // console.log("pioche : " +  pioche);
+    // rempli le terrain 
     distribuerCarte(terrain);
-	// console.log("Terrain : " + terrain);
-	// console.log(terrain[0].getHtml());	
-	// console.log(terrain[0]);
+    // distribution des cartes des joueurs
     distribuerMain();
 
     redrawBoard();
@@ -33,10 +31,7 @@ function main() {
 
     // jouerCarte(0,2,0);
     // validerLaMise(false , 0, 0);
-
-
     
-
     // exemple d'utilisation  (caracteritisqueAcompater = variablea globale à regardr tout en haut)
     //estSiLaMiseEstBonne(JoueursTab[0][0] , terrain[0], caracteristiqueAcomparer)
 }
@@ -127,10 +122,10 @@ function redrawPlayer(numJoueur){
         var i;
      //  	console.log("redrawPlayer");
      	$("#titreCartesJoueur").html("Tour du Joueur " + (numJoueur+1));
-        var carteJoueur = "<span id='carte' class=\"cartespan\">";
+        var carteJoueur = "";
         for(i = 0; i < JoueursTab[numJoueur].length ; i++){
         	console.log(JoueursTab[numJoueur]);
-
+            carteJoueur += "<span id='carte"+ i +"' class=\"cartespan\">";
             carteJoueur += JoueursTab[numJoueur][i].getHtml();
             carteJoueur += ("</span>");            
         } 
