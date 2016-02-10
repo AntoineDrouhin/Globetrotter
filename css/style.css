@@ -81,11 +81,7 @@ background-color: #F6FEFE;
 
 .glyphicon-upload {
     font-size: 40px;
-    padding-top: 100%;
 }
-
-
-
 
 /*CARD CSS AURELIEN*/
 
@@ -107,6 +103,8 @@ background-color: #F6FEFE;
         display: inline-block; 
         margin: 5px;
     }
+
+
     
     .c-card .c-header {
         width: 100%;
@@ -122,13 +120,15 @@ background-color: #F6FEFE;
         padding : 5px;
     }
 
-    .glyphicon-upload:hover {
+    .c-card:hover , .glyphicon-upload:hover {
     text-shadow: 0 0 12px #0066FF;
     }
 
     #plateau {
         text-align: center;
     }
+
+
 
 
 

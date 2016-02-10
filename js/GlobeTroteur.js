@@ -101,11 +101,11 @@ function redrawPlayer(numJoueur){
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
 	var i;
-	$("#plateau").html("<div class=\"glyphicon glyphicon-upload\"></div>");
-	$("#plateau").html("<div class=\"glyphicon glyphicon-upload\"></div>");
+	var flecheHtml = "<div class=\"glyphicon glyphicon-upload\"></div>";
+	$("#plateau").html(flecheHtml);
 	for(i = 0; i < terrain.length; i++) {
     	$("#plateau").append(terrain[i].getHtml());
-    	$("#plateau").append("<div class=\"glyphicon glyphicon-upload\"></div>");
+    	$("#plateau").append(flecheHtml);
 	}
 }
 
