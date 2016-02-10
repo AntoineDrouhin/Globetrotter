@@ -7,7 +7,8 @@ var joueur4 = [];
 var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
-
+// à changer !!!
+var caracteristiqueAcomparer = "popu";
 
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
@@ -27,6 +28,12 @@ function main() {
 
     redrawBoard();
     redrawPlayer(0);
+
+    jouerCarte(0,2,0);
+    validerLaMise(false , 0, 0);
+
+    // exemple d'utilisation  (caracteritisqueAcompater = variablea globale à regardr tout en haut)
+    //estSiLaMiseEstBonne(JoueursTab[0][0] , terrain[0], caracteristiqueAcomparer)
 }
 
 
@@ -57,28 +64,57 @@ function distribuerMain(){
 	}
 }
 
+// Lorsque le joueur joue une carte , la carte s'affiche sur le 
+// terrain mais s'éfface dans la main du joueur
+function jouerCarte(numJoueur , indice , indiceFinal){
+    terrain.splice(indiceFinal ,0,JoueursTab[numJoueur][indice]);
+    JoueursTab[numJoueur].splice(indice, 1);
+    redrawPlayer(numJoueur);
+    redrawBoard();
+}
 
+// valide la mise du joueur quand le joueur à faux on ajoute une carte au joueur 
+// et on enlève la carte sur le terrain
+function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
+    if(!aReussiSaMise){
+        terrain.splice(indiceFinal, 1);
+        distribuerCarte(JoueursTab[numJoueur]);
+        redrawPlayer(numJoueur);
+        redrawBoard();
+    }
+}
 
-// function jouerCarte(numéroJoueur, numéroCarteJoué, positinJoué){
-// 	//b est un Boolean
-// 	var b = isOk(numéroJoueur, numéroCarteJoué, positinJoué);
-// 	if(b){		
-// 		//ajoute sur le terrain
-// 		terrain.splice(positinJoué,0,JoueursTab[numéroJoueur][numéroCarteJoué]);
-// 		//supprime de la main du joueur
-// 		JoueursTab[numéroJoueur].splice(numéroCarteJoué,1);		
-// 	}
-// 	else{
-// 		//Todo quand le joueur à perdu
-// 	}
-// }
+// Test si un joueur a bon c'est a dire on vérifie la valeur des cartes 
+// que l'on compare par rapport à la position.
+function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcomparer){
+    if(caracteristiqueAcomparer == "surf"){
+        if(carteGauche.surf < carteDroite.surf){
+            return true;
+        }else{
+            return false;
+        }
+    }else if(caracteristiqueAcomparer == "popu"){
+        if(carteGauche.popu < carteDroite.popu){
+            return true;
+        }else{
+            return false;
+        }
+    }else if(caracteristiqueAcomparer == "polu"){
+         if(carteGauche.polu < carteDroite.polu){
+            return true;
+        }else{
+            return false;
+        }
+    }else if(caracteristiqueAcomparer == "pib"){
+        if(carteGauche.pib < carteDroite.pib){
+            return true;
+        }else{
+            return false;
+        }
+    }
+// TODO faire un pull
+}
 
-
-
-// // retourne TRUE si il a bien placé ça carte. FALSE sinon
-// function isOk(positionSurTerrain, carteJoueur){
-// 	// TODO
-// }
 
 
 
@@ -121,7 +157,7 @@ function testfinpartie() {
         if (JoueursTab[i].length == 0) {
             return(i);
         }
-    }
+    }   
     return -1;
 }
 
