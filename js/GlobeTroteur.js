@@ -7,6 +7,8 @@ var joueur4 = [];
 var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
+var idCarteClique;
+var idPosition;
 // à changer !!!
 var caracteristiqueAcomparer = "popu";
 
@@ -135,13 +137,13 @@ function redrawPlayer(numJoueur){
 
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
-	var i;
-	var flecheHtml = "<div  class=\"glyphicon glyphicon-upload flechesInsertion\"></div>";
-	$("#plateau").html(flecheHtml);
+	var i = 0;
+	$("#plateau").html("<div  id=\"fleche"+ i + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
 	for(i = 0; i < terrain.length; i++) {
     	$("#plateau").append(terrain[i].getHtml());
-    	$("#plateau").append(flecheHtml);
+    	$("#plateau").append("<div  id=\"fleche-" + (i+1) + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
 	}
+	$('.flechesInsertion').click(function(){alert($(this).attr("id"));});
 }
 
 // On renvoie un entier aléatoire entre une valeur min (incluse)
