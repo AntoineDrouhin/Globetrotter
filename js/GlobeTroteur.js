@@ -85,7 +85,7 @@ function distribuerMain(){
 function redrawPlayer(numJoueur){
         var i;
      //  	console.log("redrawPlayer");
-
+     	$("#titreCartesJoueur").html("Tour du Joueur " + (numJoueur+1));
         var carteJoueur = "<span id='carte' class=\"cartespan\">";
         for(i = 0; i < JoueursTab[numJoueur].length ; i++){
         	console.log(JoueursTab[numJoueur]);

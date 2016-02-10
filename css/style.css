@@ -86,56 +86,54 @@ background-color: #F6FEFE;
     vertical-align: top;
 }
 
-/*CARD CSS AURELIEN*/
+#TEAMPLATE_CARD_HTML, #TEAMPLATE_CARD_HTML_TURNED {
+    display : none;
+}
 
-    #TEAMPLATE_CARD_HTML{
-        display : none;
-    }
+.c-card{
+    width: 200px;
+    height: 200px;
+    background: #ecf0f1;
+    border-radius: 10px 10px;
+    border : 2px solid #1abc9c;
+    font-family: arial;
+    display: inline-block; 
+    margin: 5px;
+    vertical-align: top;
 
-    #TEAMPLATE_CARD_HTML_TURNED{
-        display : none;
-    }
-
-    .c-card{
-        width: 200px;
-        height: 200px;
-        background: #ecf0f1;
-        border-radius: 10px 10px;
-        border : 2px solid #1abc9c;
-        font-family: arial;
-        display: inline-block; 
-        margin: 5px;
-        vertical-align: top;
-
-    }
+}
 
 
-    
-    .c-card .c-header {
-        width: 100%;
-        height : 50px;
-        background: #A2DED0;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        line-height : 50px;
-        text-align : center;
-    }
-    
-    .c-card .c-data  div{
-        padding : 5px;
-    }
 
-    .c-card:hover , .glyphicon-upload:hover {
-    text-shadow: 0 0 12px #0066FF;
-    }
+.c-card .c-header {
+    width: 100%;
+    height : 50px;
+    background: #A2DED0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    line-height : 50px;
+    text-align : center;
+}
 
-    #plateau {
-        text-align: center;
-        max-height: 210px;
-    }
+.c-card .c-data  div{
+    padding : 5px;
+}
 
-    .flechesInsertion {
-    }
+.c-card:hover , .glyphicon-upload:hover {
+text-shadow: 0 0 12px #0066FF;
+}
+
+#plateau {
+    text-align: center;
+    max-height: 210px;
+}
+
+.flechesInsertion {
+}
+
+h3 {
+    margin-bottom: 30px; 
+}
 
 
 
