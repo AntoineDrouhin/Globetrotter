@@ -68,7 +68,7 @@ function onValidation(){
     	//SI LA MISE EST BONNE.
     if(testGauche && testDroite) {
     	displayGood();
-    	jouerCarte(joueurEnCour,convertirIDenIndice(idCarte),idfleche.substring(7,8));
+    	jouerCarte(joueurEnCour,convertirIDenIndice(idCarte),parseID(idfleche));
     }
     	// SI LA MISE EST FAUSSE
     else {
@@ -108,7 +108,7 @@ function trouverIDCarteGaucheFleche(id){
 		carteGaucheDeLaFleche = undefined;
 	}
 	else {
-		carteGaucheDeLaFleche = "carte-" + (id.substring(7,8) - 1);	
+		carteGaucheDeLaFleche = "carte-" + (parseID(id) - 1);	
 	}
 }
 
@@ -117,7 +117,7 @@ function trouverIDCarteDroiteFleche(id){
 		carteGaucheDeLaFleche = undefined;
 	}
 	else {
-		carteGaucheDeLaFleche = "carte-" + id.substring(7,8);	
+		carteGaucheDeLaFleche = "carte-" + parseID(id);	
 	}
 }
 	
