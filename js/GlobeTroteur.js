@@ -31,8 +31,11 @@ function main() {
     redrawBoard();
     redrawPlayer(0);
 
-    jouerCarte(0,2,0);
-    validerLaMise(false , 0, 0);
+    // jouerCarte(0,2,0);
+    // validerLaMise(false , 0, 0);
+
+
+    
 
     // exemple d'utilisation  (caracteritisqueAcompater = variablea globale à regardr tout en haut)
     //estSiLaMiseEstBonne(JoueursTab[0][0] , terrain[0], caracteristiqueAcomparer)
