@@ -19,23 +19,16 @@ var pioche = [];
 
 function main() {
     var i;
+    console.log(cartes);
     pioche = remplirPioche(cartes);
-
-    // console.log(pioche);
-
-
+    // console.log("pioche : " +  pioche);
     distribuerCarte(terrain);
-	
+	// console.log("Terrain : " + terrain);
 	// console.log(terrain[0].getHtml());	
 	// console.log(terrain[0]);
-
-    redrawBoard();
-
     distribuerMain();
-
-    redrawPlayer(1);
-
-    
+    redrawBoard();
+    redrawPlayer(0);
 }
 
 function remplirPioche(jsonArray){
@@ -47,10 +40,11 @@ function remplirPioche(jsonArray){
 
 
 function distribuerCarte( tab ){
-	var idNumber = getRandomInt(0,pioche.length) + 1;
-	console.log ("Nombre hasardeux : idNumber");
+	var idNumber = getRandomInt(0,pioche.length);
+	// console.log(idNumber + " " + pioche.length);
+	// console.log("pioche[idNumber]" + pioche[idNumber]);
 	tab.push(pioche[idNumber]);
-	pioche[idNumber] = undefined;
+	pioche.splice(idNumber,1);
 	// console.log("Fin de la fonction distribuerCarte " + tab);
 }
 
@@ -91,13 +85,13 @@ function isOk(positionSurTerrain, carteJoueur){
 
 function redrawPlayer(numJoueur){
         var i;
-       	console.log("redrawPlayer");
+     //  	console.log("redrawPlayer");
 
-        var carteJoueur = "<span id='carte'" + i + "class=\"cartespan\">";
+        var carteJoueur = "<span id='carte' class=\"cartespan\">";
 
         for(i = 0; i < JoueursTab[numJoueur].length ; i++){
-        	console.log(JoueursTab);
         	console.log(JoueursTab[numJoueur]);
+
             carteJoueur += JoueursTab[numJoueur][i].getHtml();
             carteJoueur += ("</span>");            
         } 
@@ -107,7 +101,7 @@ function redrawPlayer(numJoueur){
 
 
 function redrawBoard(){
-	console.log("Debut redrawBoard");
+//	console.log("Debut redrawBoard");
 	var i;
 	for(i = 0; i < terrain.length; i++) {
     	$("#plateau").html(terrain[i].getHtml());
