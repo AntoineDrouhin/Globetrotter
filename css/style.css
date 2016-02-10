@@ -100,7 +100,7 @@ background-color: #F6FEFE;
     display: inline-block; 
     margin: 5px;
     vertical-align: top;
-
+    cursor : pointer;
 }
 
 
@@ -121,7 +121,13 @@ background-color: #F6FEFE;
 }
 
 .c-card:hover , .glyphicon-upload:hover {
-text-shadow: 0 0 12px #0066FF;
+    text-shadow: 0 0 12px #0066FF;
+    border : 5px solid black !important ;
+}
+
+.c-card:active , .glyphicon-upload:active{
+    border : 5px solid black;
+
 }
 
 #boutonValidation:hover {
@@ -143,6 +149,7 @@ text-shadow: 0 0 12px #0066FF;
 }
 
 .flechesInsertion {
+    cursor : pointer;
 }
 
 h3 {
@@ -153,12 +160,6 @@ h3 {
 .vertical-center{
     margin-top : 20px;
 }
-
-
-
-
-
-
 
 
 
