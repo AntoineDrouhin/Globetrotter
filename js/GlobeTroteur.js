@@ -8,14 +8,11 @@ var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
 
-    // initialisation du terrain
 
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
     // terrain.splice(index,0,valeur)
     // terrain.splice(index, 1) : supprime à cette index
-
-    // initailisation de la pioche
 
 function main() {
     var i;
@@ -27,9 +24,11 @@ function main() {
 	// console.log(terrain[0].getHtml());	
 	// console.log(terrain[0]);
     distribuerMain();
+
     redrawBoard();
     redrawPlayer(0);
 }
+
 
 function remplirPioche(jsonArray){
     for (var i = 0; i < jsonArray.length; i++) {
@@ -88,7 +87,6 @@ function redrawPlayer(numJoueur){
      //  	console.log("redrawPlayer");
 
         var carteJoueur = "<span id='carte' class=\"cartespan\">";
-
         for(i = 0; i < JoueursTab[numJoueur].length ; i++){
         	console.log(JoueursTab[numJoueur]);
 
@@ -103,8 +101,11 @@ function redrawPlayer(numJoueur){
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
 	var i;
+	$("#plateau").html("<div class=\"glyphicon glyphicon-upload\"></div>");
+	$("#plateau").html("<div class=\"glyphicon glyphicon-upload\"></div>");
 	for(i = 0; i < terrain.length; i++) {
-    	$("#plateau").html(terrain[i].getHtml());
+    	$("#plateau").append(terrain[i].getHtml());
+    	$("#plateau").append("<div class=\"glyphicon glyphicon-upload\"></div>");
 	}
 }
 
