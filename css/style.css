@@ -93,6 +93,10 @@ background-color: #F6FEFE;
         display : none;
     }
 
+    #TEAMPLATE_CARD_HTML_TURNED{
+        display : none;
+    }
+
     .c-card{
         width: 200px;
         height: 200px;
@@ -124,7 +128,6 @@ background-color: #F6FEFE;
 
     #plateau {
         text-align: center;
-
     }
 
 

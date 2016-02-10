@@ -9,12 +9,13 @@ var cCardObject = function(data) {
         this.polu = data.polu;
         this.pib  = data.pib;
         this.initHtml();
+        this.initHtmlTurned();
     }
 };
 
 cCardObject.prototype.initHtml = function() {
     this.$el = $("#TEAMPLATE_CARD_HTML").clone();
-    this.$el.find("c-card").attr("id", "card-" + this.id);
+    this.$el.find("c-card").attr("id", this.id);
     this.$el.find(".c-header").html(this.name);
     this.$el.find(".c-pib").html(this.pib);
     this.$el.find(".c-polu").html(this.polu);
@@ -25,4 +26,17 @@ cCardObject.prototype.initHtml = function() {
 cCardObject.prototype.getHtml =  function() {
     return this.$el.html();
 };
+
+
+cCardObject.prototype.initHtmlTurned = function() {
+    this.$elt = $("#TEAMPLATE_CARD_HTML_TURNED").clone();
+    //this.$elt.find("c-card").attr("id", this.id);
+    this.$elt.find(".c-header").html(this.name);
+};
+
+
+cCardObject.prototype.getHtmlTurned =  function() {
+    return this.$elt.html();
+};
+
 

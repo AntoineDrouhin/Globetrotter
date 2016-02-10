@@ -48,6 +48,7 @@ function remplirPioche(jsonArray){
 
 function distribuerCarte( tab ){
 	var idNumber = getRandomInt(0,pioche.length) + 1;
+	console.log ("Nombre hasardeux : idNumber");
 	tab.push(pioche[idNumber]);
 	pioche[idNumber] = undefined;
 	// console.log("Fin de la fonction distribuerCarte " + tab);
