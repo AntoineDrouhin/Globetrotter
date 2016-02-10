@@ -52,6 +52,8 @@ function onClickCarte(id){
 }
 
 function onValidation(){
+
+	// Si le mec n'a pas encore défini de fleche de gauche et de droite
 	if(idCarteClique != undefined || idFleche != undefined){
 		return 0;
 	}

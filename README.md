@@ -7,14 +7,13 @@
 * Par :
  * <code>carteJoueur += JoueursTab[numJoueur][i].getHtmlTurned();</code>
 
-
-
 ## To Do :
 * Créer les fonctions permettant le choix d'une carte et de l'emplacement
 * Créer une fonction de Parse pour permettre l'affichage au dela de 10 cartes sur le board
 * Améliorer DisplayGood()
 * Améliorer DisplayFalse()
-
+* Faire perdurer l'affichage d'une carte selectionnée (genre la carte actuellement selectioné reste marqué)
+* Faire perdurer l'affichage d'une fleche selectionnée (genre la fleche actuellement selectioné reste marqué
 
 ## Done :
 * Gerer l'affichage Des fleches entre les cartes du board
