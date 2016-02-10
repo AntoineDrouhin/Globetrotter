@@ -8,9 +8,11 @@ var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
 var idCarteClique;
-var idPosition;
+var idFleche;
 var validationReady = 0;
 var validation = 0;
+var joueurEnCour = 0;
+
 // à changer !!!
 var caracteristiqueAcomparer = "popu";
 
@@ -30,10 +32,26 @@ function main() {
 
     redrawBoard();
     redrawPlayer(0);
+    var carteGaucheDeLaFleche;
+    var carteDroiteDeLaFleche;
 
-    while(validation == 0){
-		setTimeout(function() {}, 1000);
+    while(!findepartiest()){
+        pause();
+            
+
+        if(testSiLaMiseEstBonne(carteGaucheDeLaFleche , carteJoueur, caracteristiqueAcomparer)&&testSiLaMiseEstBonne(carteJoueur, carteDroiteDeLaFleche , caracteristiqueAcomparer)){
+
+        }
+        else{
+
+        }
+        jouerCarte(joueurEnCour,idFleche,0);
+
+
+        joueurEnCour = (joueurEnCour + 1) % 4; 
+
     }
+
 
     // jouerCarte(0,2,0);
     // validerLaMise(false , 0, 0);
@@ -184,5 +202,9 @@ function testfinpartie() {
     return -1;
 }
 
-
+function pause(){
+    while(validation == 0 || idCarteClique != undefined || idFleche != undefined)
+        setTimeout(function() {}, 1000);
+    }
+}
 
