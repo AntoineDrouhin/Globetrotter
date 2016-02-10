@@ -216,7 +216,7 @@
     },
     {
             id   :  25,
-            name : "Alemagne",
+            name : "Allemagne",
             surf : 357021,
             popu : 81305856,
             polu : 9.1,

@@ -8,6 +8,8 @@
  * <code>carteJoueur += JoueursTab[numJoueur][i].getHtmlTurned();</code>
 
 ## To Do :
+* Créer des affichages avec des bandeaux pour donner des informations : joueur dont c'est le tour, action a effectuer, etc...
+* Modifier le fond derriere les cartes : Remplacer le fond blanc par une image en rapport avec le jeu (transparance ??)
 * Créer les fonctions permettant le choix d'une carte et de l'emplacement
 * Créer une fonction de Parse pour permettre l'affichage au dela de 10 cartes sur le board
 * Améliorer DisplayGood()
