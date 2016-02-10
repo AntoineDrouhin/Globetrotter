@@ -10,11 +10,15 @@
 
 
 ## To Do :
-* Afficher le nom du joueur 
-* Gerer l'affichage Des fleches entre les cartes du board
 * Créer les fonctions permettant le choix d'une carte et de l'emplacement
+* Créer une fonction de Parse pour permettre l'affichage au dela de 10 cartes sur le board
+* Améliorer DisplayGood()
+* Améliorer DisplayFalse()
+
 
 ## Done :
+* Gerer l'affichage Des fleches entre les cartes du board
+* Afficher le nom du joueur 
 * Faire une fonction d'affichage de la carte "Retournée"
 * Gerer l'affichage des cartes sur une même ligne
 

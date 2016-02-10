@@ -7,13 +7,14 @@ var joueur4 = [];
 var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
+
 var idCarteClique;
 var idFleche;
-var validationReady = 0;
-var validation = 0;
-var joueurEnCour = 0;
 var carteGaucheDeLaFleche;
 var carteDroiteDeLaFleche;
+
+var joueurEnCour = 0;
+
 // à changer !!!
 var caracteristiqueAcomparer = "popu";
 
@@ -22,7 +23,7 @@ var caracteristiqueAcomparer = "popu";
     // terrain.splice(index,0,valeur)
     // terrain.splice(index, 1) : supprime à cette index
 
-function main() {
+function init() {
     var i;
     // remplie la pioche n
     pioche = remplirPioche(cartes);
@@ -34,36 +35,15 @@ function main() {
     redrawBoard();
     redrawPlayer(0);
 
+    $('#boutonValidation').click(function(){onValidation()});
 
-    while(!findepartiest()){
-        pause();
-            
-        carteGaucheDeLaFleche =     
-
-        if(testSiLaMiseEstBonne(carteGaucheDeLaFleche , carteJoueur, caracteristiqueAcomparer) && testSiLaMiseEstBonne(carteJoueur, carteDroiteDeLaFleche , caracteristiqueAcomparer)){
-
-        }
-        else{
-
-        }
-        jouerCarte(joueurEnCour,idFleche,0);
-
-
-        joueurEnCour = (joueurEnCour + 1) % 4; 
-
-    }
-
-
-    // jouerCarte(0,2,0);
-    // validerLaMise(false , 0, 0);
-
-    // exemple d'utilisation  (caracteritisqueAcompater = variablea globale à regardr tout en haut)
-    //estSiLaMiseEstBonne(JoueursTab[0][0] , terrain[0], caracteristiqueAcomparer)
 }
 
 function onClickFleche(id){
-	idCarteClique = id;
+	idFleche = id;
 	console.log("ID Fleche cliqué " + id);
+	trouverIDCarteGaucheFleche(id);
+	trouverIDCarteDroiteFleche(id);
 }
 
 function onClickCarte(id){
@@ -71,15 +51,46 @@ function onClickCarte(id){
 	console.log("ID Carte cliqué : " + id);
 }
 
-function onClickValidation(){
-	if(validationReady == 1) {
-		validationReady = 0;
-		validerLaMise();
+function onValidation(){
+	if(idCarteClique != undefined || idFleche != undefined){
+		return 0;
 	}
+
+	var testGauche = testSiLaMiseEstBonne(carteGaucheDeLaFleche , carteJoueur, caracteristiqueAcomparer);
+	var testDroite = testSiLaMiseEstBonne(carteJoueur, carteDroiteDeLaFleche , caracteristiqueAcomparer);
+    
+    	//SI LA MISE EST BONNE.
+    if(testGauche && testDroite) {
+    	displayGood();
+    	jouerCarte(joueurEnCour,convertirIDenIndice(idCarte),idfleche.substring(7,8));
+    }
+    	// SI LA MISE EST FAUSSE
+    else {
+    	displayFalse();
+    }
+    
+
+    idCarteClique = undefined;
+	idFleche = undefined;
+	carteGaucheDeLaFleche = undefined;
+	carteDroiteDeLaFleche = undefined;
+    joueurEnCour = (joueurEnCour + 1) % 4;
+
+    redrawBoard();
+    redrawPlayer(joueurEnCour);    
 }
 
+function displayGood(){
+	alert("Bien joué");
+}
+
+function displayFalse(){
+	alert("C'est faux");
+}
+
+
 function convertirIDenIndice(pID){
-	int i = 0;
+	var i = 0;
 	for(i = 0; i < JoueursTab[joueurEnCour].length ; i++){
 		if(pID == JoueursTab[joueurEnCour].id)
 			return i;
@@ -87,10 +98,23 @@ function convertirIDenIndice(pID){
 }
 
 function trouverIDCarteGaucheFleche(id){
-
-	
+	if(id = "fleche-0"){
+		carteGaucheDeLaFleche = undefined;
+	}
+	else {
+		carteGaucheDeLaFleche = "carte-" + (id.substring(7,8) - 1);	
+	}
 }
 
+function trouverIDCarteDroiteFleche(id){
+	if(id = "fleche-0"){
+		carteGaucheDeLaFleche = undefined;
+	}
+	else {
+		carteGaucheDeLaFleche = "carte-" + id.substring(7,8);	
+	}
+}
+	
 function remplirPioche(jsonArray){
     for (var i = 0; i < jsonArray.length; i++) {
         pioche.push(new cCardObject(jsonArray[i]));
@@ -178,24 +202,24 @@ function redrawPlayer(numJoueur){
      	$("#titreCartesJoueur").html("Tour du Joueur " + (numJoueur+1));
         var carteJoueur = "";
         for(i = 0; i < JoueursTab[numJoueur].length ; i++){
-        	console.log(JoueursTab[numJoueur]);
+        	// console.log(JoueursTab[numJoueur]);
             carteJoueur += "<span id='carte"+ i +"' class=\"cartespan\">";
             carteJoueur += JoueursTab[numJoueur][i].getHtml();
             carteJoueur += ("</span>");            
         } 
         $("#cartesJoueur").html(carteJoueur);
-        $('#cartesJoueur .c-card').click(function(){alert($(this).attr("id"));});
+        $('#cartesJoueur .c-card').click(function(){onClickCarte($(this).attr("id"));});
 }
 
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
 	var i = 0;
-	$("#plateau").html("<div  id=\"fleche"+ i + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
+	$("#plateau").html("<div  id=\"fleche-"+ i + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
 	for(i = 0; i < terrain.length; i++) {
     	$("#plateau").append(terrain[i].getHtml());
     	$("#plateau").append("<div  id=\"fleche-" + (i+1) + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
 	}
-	$('.flechesInsertion').click(function(){alert($(this).attr("id"));});
+	$('.flechesInsertion').click(function(){onClickFleche($(this).attr("id"));});
 }
 
 // On renvoie un entier aléatoire entre une valeur min (incluse)
@@ -216,9 +240,10 @@ function testfinpartie() {
     return -1;
 }
 
-function pause(){
-    while(validation == 0 || idCarteClique != undefined || idFleche != undefined)
-        setTimeout(function() {}, 1000);
-    }
-}
+// function pause(){
+//     while(validation == 0 || idCarteClique != undefined || idFleche != undefined){
+//         setTimeout(function() {}, 1000);
+//     }
+// }
+
 
