@@ -81,6 +81,9 @@ background-color: #F6FEFE;
 
 .glyphicon-upload {
     font-size: 40px;
+    font-size: 40px;
+    margin-top: 90px;
+    vertical-align: top;
 }
 
 /*CARD CSS AURELIEN*/
@@ -102,6 +105,8 @@ background-color: #F6FEFE;
         font-family: arial;
         display: inline-block; 
         margin: 5px;
+        vertical-align: top;
+
     }
 
 
