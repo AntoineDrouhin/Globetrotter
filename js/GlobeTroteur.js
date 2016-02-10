@@ -58,28 +58,28 @@ function distribuerMain(){
 }
 
 
-/*
-function jouerCarte(numéroJoueur, numéroCarteJoué, positinJoué){
-	//b est un Boolean
-	var b = isOk(numéroJoueur, numéroCarteJoué, positinJoué);
-	if(b){		
-		//ajoute sur le terrain
-		terrain.splice(positinJoué,0,JoueursTab[numéroJoueur][numéroCarteJoué]);
-		//supprime de la main du joueur
-		JoueursTab[numéroJoueur].splice(numéroCarteJoué,1);		
-	}
-	else{
-		//Todo quand le joueur à perdu
-	}
-}
-*/
 
-/*
-// retourne TRUE si il a bien placé ça carte. FALSE sinon
-function isOk(positionSurTerrain, carteJoueur){
-	// TODO
-}
-*/
+// function jouerCarte(numéroJoueur, numéroCarteJoué, positinJoué){
+// 	//b est un Boolean
+// 	var b = isOk(numéroJoueur, numéroCarteJoué, positinJoué);
+// 	if(b){		
+// 		//ajoute sur le terrain
+// 		terrain.splice(positinJoué,0,JoueursTab[numéroJoueur][numéroCarteJoué]);
+// 		//supprime de la main du joueur
+// 		JoueursTab[numéroJoueur].splice(numéroCarteJoué,1);		
+// 	}
+// 	else{
+// 		//Todo quand le joueur à perdu
+// 	}
+// }
+
+
+
+// // retourne TRUE si il a bien placé ça carte. FALSE sinon
+// function isOk(positionSurTerrain, carteJoueur){
+// 	// TODO
+// }
+
 
 
 function redrawPlayer(numJoueur){
@@ -96,12 +96,10 @@ function redrawPlayer(numJoueur){
             $("#cartesJoueur").html(carteJoueur);
 }
 
-
-
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
 	var i;
-	var flecheHtml = "<div class=\"glyphicon glyphicon-upload\"></div>";
+	var flecheHtml = "<div  class=\"glyphicon glyphicon-upload flechesInsertion\"></div>";
 	$("#plateau").html(flecheHtml);
 	for(i = 0; i < terrain.length; i++) {
     	$("#plateau").append(terrain[i].getHtml());
@@ -109,22 +107,19 @@ function redrawBoard(){
 	}
 }
 
-
-
 // On renvoie un entier aléatoire entre une valeur min (incluse)
 // et une valeur max (exclue).
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
-//function testfinpartie() {
-//	var i;
-    //for(i = 0; i<JoueursTab.length; i++){
+// function testfinpartie() {
+// 	var i;
+//     for(i = 0; i<JoueursTab.length; i++){
 //        if (typeof JoueursTab[i] !== "undefined" && JoueursTab[i].length <= 0) {
 //            return(i);
-    //}
-    //return -1;
-//}
+//     }
+//     return -1;
+// }
 
 
