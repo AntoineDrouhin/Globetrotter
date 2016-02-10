@@ -129,7 +129,8 @@ function redrawPlayer(numJoueur){
             carteJoueur += JoueursTab[numJoueur][i].getHtml();
             carteJoueur += ("</span>");            
         } 
-            $("#cartesJoueur").html(carteJoueur);
+        $("#cartesJoueur").html(carteJoueur);
+        $('#cartesJoueur .c-card').click(function(){alert($(this).attr("id"));});
 }
 
 function redrawBoard(){

@@ -113,6 +113,7 @@ background-color: #F6FEFE;
     border-top-right-radius: 10px;
     line-height : 50px;
     text-align : center;
+    cursor: pointer;
 }
 
 .c-card .c-data  div{

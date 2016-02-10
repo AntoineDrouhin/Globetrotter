@@ -15,7 +15,7 @@ var cCardObject = function(data) {
 
 cCardObject.prototype.initHtml = function() {
     this.$el = $("#TEAMPLATE_CARD_HTML").clone();
-    this.$el.find("c-card").attr("id", this.id);
+    this.$el.find(".c-card").attr("id", "carte-" + this.id);
     this.$el.find(".c-header").html(this.name);
     this.$el.find(".c-pib").html(this.pib);
     this.$el.find(".c-polu").html(this.polu);
