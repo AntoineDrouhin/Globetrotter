@@ -100,8 +100,8 @@ background-color: #F6FEFE;
         border-radius: 10px 10px;
         border : 2px solid #1abc9c;
         font-family: arial;
-        
-        
+        display: inline-block; 
+        margin: 5px;
     }
     
     .c-card .c-header {
@@ -120,13 +120,12 @@ background-color: #F6FEFE;
 
     .glyphicon-upload:hover {
     text-shadow: 0 0 12px #0066FF;
-
-    .cartespan{
-        margin: 5px;
-
     }
 
-}
+    #plateau {
+        text-align: center;
+
+    }
 
 
 
