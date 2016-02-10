@@ -59,16 +59,21 @@ function onValidation(){
 		return 0;
 	}
 
-	var testGauche = testSiLaMiseEstBonne(findObject(carteGaucheDeLaFleche) , findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)), caracteristiqueAcomparer);
+	var testGauche = testSiLaMiseEstBonne(findObject(terrain, parseID(carteGaucheDeLaFleche)) , findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)), caracteristiqueAcomparer);
 	console.log("Test Gauche : " + testGauche);
 
-	var testDroite = testSiLaMiseEstBonne(findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)), findObject(carteDroiteDeLaFleche), caracteristiqueAcomparer);
+
+
+	console.log(findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)));
+	console.log(findObject(terrain, parseID(carteDroiteDeLaFleche)));
+
+	var testDroite = testSiLaMiseEstBonne(findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)), findObject(terrain, parseID(carteDroiteDeLaFleche)), caracteristiqueAcomparer);
     console.log("Test Droite : " + testDroite);
 
     	//SI LA MISE EST BONNE.
     if(testGauche && testDroite) {
     	displayGood();
-    	jouerCarte(joueurEnCour,convertirIDenIndice(idCarte),parseID(idfleche));
+    	jouerCarte(joueurEnCour,convertirIDenIndice(idCarteClique),parseID(idFleche));
     }
     	// SI LA MISE EST FAUSSE
     else {
@@ -127,7 +132,7 @@ function trouverIDCarteDroiteFleche(id){
 	// 	carteGaucheDeLaFleche = undefined;
 	// }
 	
-		carteGaucheDeLaFleche = "carte-" + parseID(id);	
+		carteDroiteDeLaFleche = "carte-" + parseID(id);	
 	
 }
 	
@@ -181,6 +186,7 @@ function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
 // Renvois true si c'est Ok
 function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcomparer){
 	if(typeof carteGauche == "undefined" || typeof carteDroite == "undefined"){
+		console.log("Lors du test un des cartes(gauche ou droite) etait de type undefined");
 		return true;
 	}
     if(caracteristiqueAcomparer == "surf"){
@@ -215,6 +221,9 @@ function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcompare
  *	Parse un id de fleche ou de car et retourne juste l'entier
  */
 function parseID(id){
+	if(id === undefined){
+		return 0;
+	}
 	if(id.substring(0,3) == "car"){
 		if(id.length == 7){
 			return id.substring(6,7)
