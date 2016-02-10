@@ -12,7 +12,8 @@ var idFleche;
 var validationReady = 0;
 var validation = 0;
 var joueurEnCour = 0;
-
+var carteGaucheDeLaFleche;
+var carteDroiteDeLaFleche;
 // à changer !!!
 var caracteristiqueAcomparer = "popu";
 
@@ -32,14 +33,14 @@ function main() {
 
     redrawBoard();
     redrawPlayer(0);
-    var carteGaucheDeLaFleche;
-    var carteDroiteDeLaFleche;
+
 
     while(!findepartiest()){
         pause();
             
+        carteGaucheDeLaFleche =     
 
-        if(testSiLaMiseEstBonne(carteGaucheDeLaFleche , carteJoueur, caracteristiqueAcomparer)&&testSiLaMiseEstBonne(carteJoueur, carteDroiteDeLaFleche , caracteristiqueAcomparer)){
+        if(testSiLaMiseEstBonne(carteGaucheDeLaFleche , carteJoueur, caracteristiqueAcomparer) && testSiLaMiseEstBonne(carteJoueur, carteDroiteDeLaFleche , caracteristiqueAcomparer)){
 
         }
         else{
@@ -77,6 +78,19 @@ function onClickValidation(){
 	}
 }
 
+function convertirIDenIndice(pID){
+	int i = 0;
+	for(i = 0; i < JoueursTab[joueurEnCour].length ; i++){
+		if(pID == JoueursTab[joueurEnCour].id)
+			return i;
+	}
+}
+
+function trouverIDCarteGaucheFleche(id){
+
+	
+}
+
 function remplirPioche(jsonArray){
     for (var i = 0; i < jsonArray.length; i++) {
         pioche.push(new cCardObject(jsonArray[i]));
@@ -93,8 +107,6 @@ function distribuerCarte( tab ){
 	pioche.splice(idNumber,1);
 	// console.log("Fin de la fonction distribuerCarte " + tab);
 }
-
-
 
 function distribuerMain(){
 	for(i=0; i < 4 ;i++){
