@@ -127,32 +127,34 @@ function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
 // Test si un joueur a bon c'est a dire on vérifie la valeur des cartes 
 // que l'on compare par rapport à la position.
 function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcomparer){
+	if(typeof carteGauche == "undefined" || typeof carteDroite == "undefined"){
+		return true;
+	}
     if(caracteristiqueAcomparer == "surf"){
-        if(carteGauche.surf < carteDroite.surf){
+        if(carteGauche.surf <= carteDroite.surf){
             return true;
         }else{
             return false;
         }
     }else if(caracteristiqueAcomparer == "popu"){
-        if(carteGauche.popu < carteDroite.popu){
+        if(carteGauche.popu <= carteDroite.popu){
             return true;
         }else{
             return false;
         }
     }else if(caracteristiqueAcomparer == "polu"){
-         if(carteGauche.polu < carteDroite.polu){
+         if(carteGauche.polu <= carteDroite.polu){
             return true;
         }else{
             return false;
         }
     }else if(caracteristiqueAcomparer == "pib"){
-        if(carteGauche.pib < carteDroite.pib){
+        if(carteGauche.pib <= carteDroite.pib){
             return true;
         }else{
             return false;
         }
     }
-// TODO faire un pull
 }
 
 
