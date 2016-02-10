@@ -59,10 +59,10 @@ function onValidation(){
 		return 0;
 	}
 
-	var testGauche = testSiLaMiseEstBonne(carteGaucheDeLaFleche , carteJoueur, caracteristiqueAcomparer);
+	var testGauche = testSiLaMiseEstBonne(findObject(carteGaucheDeLaFleche) , findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)), caracteristiqueAcomparer);
 	console.log("Test Gauche : " + testGauche);
 
-	var testDroite = testSiLaMiseEstBonne(carteJoueur, carteDroiteDeLaFleche , caracteristiqueAcomparer);
+	var testDroite = testSiLaMiseEstBonne(findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)), findObject(carteDroiteDeLaFleche), caracteristiqueAcomparer);
     console.log("Test Droite : " + testDroite);
 
     	//SI LA MISE EST BONNE.
@@ -95,6 +95,16 @@ function displayFalse(){
 }
 
 
+function findObject(tab, entier){
+	var i;
+	if(Array.isArray(tab)){
+		for(i = 0; i < tab.length; i++){
+			if(tab[i].id == entier)
+				return tab[i];
+		}	
+	}
+}
+
 function convertirIDenIndice(pID){
 	var i = 0;
 	for(i = 0; i < JoueursTab[joueurEnCour].length ; i++){
@@ -113,12 +123,12 @@ function trouverIDCarteGaucheFleche(id){
 }
 
 function trouverIDCarteDroiteFleche(id){
-	if(id = "fleche-0"){
-		carteGaucheDeLaFleche = undefined;
-	}
-	else {
+	// if(id = "fleche-0"){
+	// 	carteGaucheDeLaFleche = undefined;
+	// }
+	
 		carteGaucheDeLaFleche = "carte-" + parseID(id);	
-	}
+	
 }
 	
 function remplirPioche(jsonArray){
@@ -168,6 +178,7 @@ function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
 
 // Test si un joueur a bon c'est a dire on vérifie la valeur des cartes 
 // que l'on compare par rapport à la position.
+// Renvois true si c'est Ok
 function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcomparer){
 	if(typeof carteGauche == "undefined" || typeof carteDroite == "undefined"){
 		return true;
