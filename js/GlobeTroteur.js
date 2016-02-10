@@ -113,13 +113,17 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// function testfinpartie() {
-// 	var i;
-//     for(i = 0; i<JoueursTab.length; i++){
-//        if (typeof JoueursTab[i] !== "undefined" && JoueursTab[i].length <= 0) {
-//            return(i);
-//     }
-//     return -1;
-// }
+
+
+function testfinpartie() {
+	var i;
+    for(i = 0; i<JoueursTab.length; i++){
+        if (JoueursTab[i].length == 0) {
+            return(i);
+        }
+    }
+    return -1;
+}
+
 
 
