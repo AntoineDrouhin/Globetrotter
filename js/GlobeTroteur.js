@@ -9,6 +9,8 @@ var terrain = [];
 var pioche = [];
 var idCarteClique;
 var idPosition;
+var validationReady = 0;
+var validation = 0;
 // à changer !!!
 var caracteristiqueAcomparer = "popu";
 
@@ -29,13 +31,33 @@ function main() {
     redrawBoard();
     redrawPlayer(0);
 
+    while(validation == 0){
+		setTimeout(function() {}, 1000);
+    }
+
     // jouerCarte(0,2,0);
     // validerLaMise(false , 0, 0);
-    
+
     // exemple d'utilisation  (caracteritisqueAcompater = variablea globale à regardr tout en haut)
     //estSiLaMiseEstBonne(JoueursTab[0][0] , terrain[0], caracteristiqueAcomparer)
 }
 
+function onClickFleche(id){
+	idCarteClique = id;
+	console.log("ID Fleche cliqué " + id);
+}
+
+function onClickCarte(id){
+	ifCarteClique = id;
+	console.log("ID Carte cliqué : " + id);
+}
+
+function onClickValidation(){
+	if(validationReady == 1) {
+		validationReady = 0;
+		validerLaMise();
+	}
+}
 
 function remplirPioche(jsonArray){
     for (var i = 0; i < jsonArray.length; i++) {
