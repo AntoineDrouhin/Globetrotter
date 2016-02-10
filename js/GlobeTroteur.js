@@ -16,7 +16,7 @@ var carteDroiteDeLaFleche;
 var joueurEnCour = 0;
 var cartePose = 0 ;
 // à changer !!!
-var caracteristiqueAcomparer = "polu";
+var caracteristiqueAcomparer = "popu";
 
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
