@@ -71,7 +71,7 @@ function onValidation(){
 		return 0;
 	}
 
-	var testGauche = testSiLaMiseEstBonne(findObject(terrain, parseID(carteGaucheDeLaFleche)) , findObject(JoueursTab[joueurEnCour], parseID(idCarteClique)), caracteristiqueAcomparer);
+	var testGauche = testSiLaMiseEstBonne(terrain[parseID(carteGaucheDeLaFleche)] , terrain[convertirIDenIndicePourTerrain(parseID(idCarteClique))], caracteristiqueAcomparer);
 	// console.log("Test Gauche : " + testGauche);
 
 
