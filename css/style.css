@@ -34,9 +34,26 @@ body {
 .active,
 .navbar-brand,
 .navbar-inverse {
-	background: url(../img/ban.jpg);
-	color: #FF8E34;
+	background: url(../img/papier.jpg);
+	color: #000000;
 }
+
+.navbar .navbar-brand {
+    color: white;
+}
+
+.navbar .navbar-brand:hover {
+    text-shadow: 0 0 12px #0066FF;
+}
+
+.navbar .nav > li > a {
+    color:  white;
+}
+
+.navbar .nav > li > a:hover {
+    text-shadow: 0 0 12px #0066FF;
+}
+
 
 .centrage
 {
