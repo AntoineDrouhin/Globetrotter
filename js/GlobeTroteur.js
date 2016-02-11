@@ -283,7 +283,8 @@ function testfinpartie() {
 	var i;
     for(i = 0; i<JoueursTab.length; i++){
         if (JoueursTab[i].length == 0) {
-        	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DU JOUEUR "+ i );
+        	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE" );
+	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i+1) );}, dureeDisplay);        	
 			$("#BANDEAU_BLEU").css( "display", "block" );
         }
     }   

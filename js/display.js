@@ -3,21 +3,25 @@
 function applyInfoGras(){
 	if(caracteristiqueAcomparer == "surf"){
     	$(".c-surf").css( "font-weight", "bold" ); 
+    	$(".ct-surf").css( "font-weight", "bold" ); 
     }
     else if(caracteristiqueAcomparer == "popu"){
     	$(".c-popu").css( "font-weight", "bold" ); 
+    	$(".ct-popu").css( "font-weight", "bold" ); 
     }
 	else if(caracteristiqueAcomparer == "polu"){
     	$(".c-polu").css( "font-weight", "bold" ); 
+    	$(".ct-polu").css( "font-weight", "bold" ); 
 	}
 	else if(caracteristiqueAcomparer == "pib"){
     	$(".c-pib").css( "font-weight", "bold" ); 
+    	$(".ct-pib").css( "font-weight", "bold" ); 
     }
 }
 
 function displayBandeauRouge(texte){
 	$("#TEXTE_BANDEAU_ROUGE").html( texte );
-	
+	$("#BANDEAU_ROUGE").css( "display", "block" );
 	setTimeout(function() { $("#BANDEAU_ROUGE").css( "display", "none" );}, dureeDisplay);
 }
 
