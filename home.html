@@ -16,14 +16,11 @@
 	</head>
 
 	<body>
-		
-
-
 					<!-- Top NAVBAR -->
-			<nav class="navbar navbar-inverse navbar-fixed-top"id="ban">
+			<nav class="navbar navbar-inverse navbar-fixed-top" id="ban">
 				<div class="container">
 						<!-- Titre de la page -->
-					<a href="home.html" class="navbar-brand">Cardline Globetrotter</a>
+					<a href="index.html" class="navbar-brand">Cardline Globetrotter</a>
 						
 						<!-- Bouton de remplacement du menu  -->
 						<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -35,55 +32,132 @@
 						<!-- Items du menu -->
 					<div class="collapse navbar-collapse navHeaderCollapse ">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#" >Home</a></li>
-							<li><a href="#">Règles du jeu</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Nouvelle Partie<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="home.html?popu">Population</a></li>
+									<li><a href="home.html?pib">PIB</a></li>
+									<li><a href="home.html?polu">Polution</a></li>
+									<li><a href="home.html?surf">Surface</a></li>
+																		
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 
-						<!-- Contenu sur les boxeurs -->
+						<!-- Affichage Du Jeu -->
 			<div class="container">
 				<div class="row">
-                
                 <!-- Plateau de jeu -->
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="panel-header">
-								<h3 id="boxeur" >Créer un nouvelle partie</h3>
+								<h3 id="titrePLateau" >Plateau de jeu</h3>
 							</div>
 							<div class="col-xs-12">
-                                <form>
-                                <div class="form-group">
-    								<label class="col-sm-2 control-label">Nombre de joueurs</label>
-                                    <input class="form-control"type="text" id="players" placeholder="Nombre de joueurs" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">Choix du thème</label>
-                                    <select class="form-control">
-                                        <option value="surface">Surface</option>
-                                        <option value="population">Population</option>
-                                        <option value="PIB">PIB</option>
-                                        <option value="polution">Polution</option>
-                                    </select>
-                                </div>
-                                    <button type="button">Créer</button>
-                                </form>
+                                <div id="plateau"></div>
 							</div>		
-								
 						</div>
 					</div>
-                    
-                    
+                    <!--
+    				<div class="panel panel-default text-center" id="boutonValidation" >
+						
+							<h2> VALIDATION <h2>
+						
+					</div>
+					-->                
+                    <!-- Mes cartes -->
+                    <div class="panel panel-default">
+						<div class="panel-body">
+							<div class="panel-header">
+								<h3 id="titreCartesJoueur" >Mes cartes</h3>
+							</div>
+
+							<div class="col-xs-12 text-center">
+                                <div id="cartesJoueur" >
+                                </div>
+                            </div>
+						</div>
+					</div>
 				</div>
 			</div>
 
+<div id="TEAMPLATE_CARD_HTML">
+ <div class="c-card" >
+    <div class="c-header"></div>
+    <div class="c-data">
+        <table>
+            <tr>
+                <td class="ct-pib">PIB : </td>
+                <td>
+                    <div class="c-pib"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="ct-polu">Pollution : </td>
+                <td>
+                    <div class="c-polu"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="ct-surf">Surface : </td>
+                <td>
+                    <div class="c-surf"></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="ct-popu">Population : </td>
+                <td>
+                    <div class="c-popu"></div>
+                </td>
+                
+            </tr>
+        </table>     
+    </div>
+ </div>
+</div>
 
+<div id="TEAMPLATE_CARD_HTML_TURNED">
+ <div class="c-card" draggable="true" >
+    <div class="c-header"></div>
+    <div class="c-link" ><img  class="fondCard">
+
+    	<div class="c-data">
+                
+        	<table>
+        		
+        	</table>     
+    	</div>
+	</div>
+ </div>
+</div>
+
+<div id="BANDEAU_ROUGE" class="bandeau">
+	<div id="TEXTE_BANDEAU_ROUGE" class="texte_bandeau">TEXTE BANDEAU</div>
+</div>
+
+<div id="BANDEAU_BLEU" class="bandeau">
+	<div id="TEXTE_BANDEAU_BLEU" class="texte_bandeau">TEXTE BANDEAU</div>
+</div>
+
+<div id="BANDEAU_VERT" class="bandeau">
+	<div id="TEXTE_BANDEAU_VERT" class="texte_bandeau">TEXTE BANDEAU</div>
+</div>
 		<!-- Querry needed by bootstrap -->
-   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   		<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	<!-- Include all compiled plugins (below), or include individual files as needed -->
-    	<script src="js/bootstrap.min.js"></script>
-
+    	<script type='text/javascript' src="js/bootstrap.min.js"></script>
+    	<script type='text/javascript' src="js/display.js"></script>
+    	<script type='text/javascript' src="js/cCardObject.js"></script>
+    	<script type='text/javascript' src="js/cards.js"></script>
+    	<script type='text/javascript' src="js/GlobeTroteur.js"></script>
+    	<script type='text/javascript'>
+			$(document).ready(function() {
+				init();	
+			});
+		</script>
 		
 	</body>
 </html>

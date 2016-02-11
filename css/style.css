@@ -109,6 +109,20 @@ body {
     vertical-align: top;
 }
 
+.glyphicon-download {
+    font-size: 40px;
+    font-size: 40px;
+    margin-top: 90px;
+    vertical-align: top;
+}
+
+.glyphicon-plus-sign  {
+      font-size: 40px;
+    font-size: 40px;
+    margin-top: 90px;
+    vertical-align: top;
+}
+
 #TEAMPLATE_CARD_HTML, #TEAMPLATE_CARD_HTML_TURNED {
     display : none;
 }
@@ -149,8 +163,14 @@ body {
     padding : 5px;
 }
 
-  .glyphicon-upload:hover {
+.glyphicon-upload:hover {
     color: white;
+}
+.glyphicon-download:hover {
+     color: white;
+}
+.glyphicon-plus-sign:hover {
+    color:white;
 }
 
 #cartesJoueur .c-card:hover {
@@ -185,6 +205,10 @@ body {
 
 .flechesInsertion {
     cursor : pointer;
+    height : 150px;
+    margin-right : -20px;
+    margin-left : -20px;
+    width : 100px;
 }
 
 h3 {
@@ -255,4 +279,46 @@ h3 {
 
 }
 
+#players {
+    width:  250px;
+}
 
+#theme {
+    width : 250px;
+}
+
+
+#labelNbJoueur{
+    margin-top :5px;
+}
+#labelcxTheme{ 
+   margin-top :5px;
+}
+
+.imagePlusNom {
+
+    display : inline-block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.imagePlusNom h4 {
+   color: black;
+}
+
+.imagePlusNom img {
+   border-radius:   10px;
+}
+
+.ensembleDePhoto{
+
+    text-align : center;
+}
+
+#containerFomulaire {
+
+
+}
+
+#bouton {
+    margin-left :375px;
+}

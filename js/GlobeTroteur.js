@@ -8,6 +8,9 @@ var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
 var dureeDisplay = 1000;
+var nbCarte = 4;
+var nbJoueur = 2; 
+var joueurVictorieu = 0;
 
 var idCarteClique;
 var idFleche;
@@ -19,6 +22,7 @@ var cartePose = 0 ;
 // à changer !!!
 var caracteristiqueAcomparer = "pib";
 
+
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
     // terrain.splice(index,0,valeur)
@@ -26,10 +30,16 @@ var caracteristiqueAcomparer = "pib";
 
 function init() {
 
-    var type = window.location.search.replace("?","");
-    if(type != "")
-        caracteristiqueAcomparer = type;
+    var param = window.location.search.replace("?","");
+    console.log(param);
+    param = param.split("&");
 
+    if(param[0] != "")
+        caracteristiqueAcomparer = param[0];
+    if(param[1] != "" && param[1] > 0  && param[1] <= 4){
+        nbJoueur = param[1];
+    }
+    console.log("JoueursTab" + nbJoueur);
     // remplie la pioche n
     pioche = remplirPioche(cartes);
     // rempli le terrain 
@@ -45,8 +55,8 @@ function init() {
 
     displayBandeauBleu("Debut de la Partie");
     setTimeout(function() {displayBandeauBleu("Inserer les pays");
-		setTimeout(function() {displayBandeauBleu("par ordre croissant");
-			setTimeout(function() {displayBandeauBleu("De " + texteType());}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
+	setTimeout(function() {displayBandeauBleu("par ordre croissant");
+	setTimeout(function() {displayBandeauBleu("De " + texteType());}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
 
 }
 
@@ -110,7 +120,7 @@ function onValidation(){
     // console.log("Test Droite : " + testDroite);
     
     // console.log(testDroite);
-    validerLaMise((testGauche && testDroite), joueurEnCour ,parseID(idFleche) );
+    var unJoueurAgagnee = validerLaMise((testGauche && testDroite), joueurEnCour ,parseID(idFleche) );
 
     console.log("LONGUEUR TABLEAU == "  + JoueursTab[joueurEnCour].length);
     
@@ -118,17 +128,18 @@ function onValidation(){
 	idFleche = undefined;
 	carteGaucheDeLaFleche = undefined;
 	carteDroiteDeLaFleche = undefined;
-    joueurEnCour = (joueurEnCour + 1) % 4;
+    joueurEnCour = (joueurEnCour + 1) % nbJoueur;
     cartePose = 0;
 
-  	testfinpartie();
 
+    if(!unJoueurAgagnee){
+        redrawPlayer(joueurEnCour); 
+        redrawBoard();
+        applyInfoGras();
+        
+        setTimeout(function() {displayBandeauBleu("JOUEUR "+ (joueurEnCour + 1));}, dureeDisplay);
+    }
 
-    redrawPlayer(joueurEnCour); 
-    redrawBoard();
-    applyInfoGras();
-    
-    setTimeout(function() {displayBandeauBleu("JOUEUR "+ (joueurEnCour + 1));}, dureeDisplay);
 }
 
 function findObject(tab, entier){
@@ -195,8 +206,8 @@ function distribuerCarte( tab ){
 }
 
 function distribuerMain(){
-	for(i=0; i < 4 ;i++){
-		for(j=0;j< 4;j++){
+	for(i=0; i < nbJoueur ;i++){
+		for(j=0;j< nbCarte;j++){
 			distribuerCarte(JoueursTab[i]);
 		}
 	}
@@ -222,7 +233,15 @@ function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
         redrawBoard();
         displayBandeauRouge("False");
     }else{
-        displayBandeauVert("Good");
+        if(testfinpartie()){
+            $("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE JOUEUR "+ (joueurVictorieu) );
+            $("#BANDEAU_BLEU").css( "display", "block" );
+            return true;
+        }else{
+            displayBandeauVert("Good");
+        }
+      
+            
     }
 }
 
@@ -305,21 +324,17 @@ function getRandomInt(min, max) {
 /*
  *	
  */
+
 function testfinpartie() {
 	var i;
-    for(i = 0; i<JoueursTab.length; i++){
+    for(i = 0; i<nbJoueur; i++){
+        console.log("joueurTab[i] ==== " + JoueursTab[i].length);
         if (JoueursTab[i].length == 0) {
-        	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE" );
-	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i) ); $("#BANDEAU_BLEU").css( "display", "block" );}, dureeDisplay);        	
-			
+            joueurVictorieu = (i+1);
+			return true;
         }
-    }   
+    }
+    return false;  
 }
-
-// function pause(){
-//     while(validation == 0 || idCarteClique != undefined || idFleche != undefined){
-//         setTimeout(function() {}, 1000);
-//     }
-// }
 
 
