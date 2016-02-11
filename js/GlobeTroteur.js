@@ -192,9 +192,9 @@ function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
         distribuerCarte(JoueursTab[numJoueur]);
         redrawPlayer(numJoueur);
         redrawBoard();
-        displayFalse();
+        displayBandeauRouge("False");
     }else{
-        displayGood();
+        displayBandeauVert("Good");
     }
 }
 
