@@ -11,7 +11,7 @@
 * Créer un attribut compare qui dublique l'attribut de la carte utilisé pour la partie.
 * Modifier le fond derriere les cartes : Remplacer le fond blanc par une image en rapport avec le jeu (transparence ??)
 * Créer une fonction de Parse pour permettre l'affichage au dela de 10 cartes sur le board
-* Mettre en gras et souligner le nom du pays sur la carte
+
 
 ## Idées améliorations :
 * Glisser les cartes (et donc enlever les fleches)
@@ -20,6 +20,7 @@
 * Ajouter des espaces entre les milliers
 
 ## Done :
+* Mettre en gras et souligner le nom du pays sur la carte
 * Améliorer DisplayGood()
 * Améliorer DisplayFalse()
 * Créer les fonctions permettant le choix d'une carte et de l'emplacement
