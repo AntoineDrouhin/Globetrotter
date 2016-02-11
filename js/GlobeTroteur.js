@@ -47,6 +47,8 @@ function onClickFleche(id){
         trouverIDCarteDroiteFleche(id);
         jouerCarte(joueurEnCour,convertirIDenIndice(parseID(idCarteClique)),parseID(idFleche));
         cartePose = 1;
+        setTimeout(function() {}, 2000);
+        onValidation();
     }
 	
 }
@@ -92,19 +94,16 @@ function onValidation(){
     joueurEnCour = (joueurEnCour + 1) % 4;
     cartePose = 0;
 
+    winner = testfinpartie();
+    if(winner != -1){
+    	displayFinPartie(winner);
+    	return 0;
+    }
+
     redrawPlayer(joueurEnCour); 
     redrawBoard();
        
 }
-
-function displayGood(){
-	alert("Bien joué");
-}
-
-function displayFalse(){
-	alert("C'est faux");
-}
-
 
 function findObject(tab, entier){
 	var i;
@@ -268,46 +267,11 @@ function parseID(id){
 }
 
 /*
- *	Rafraichis l'affichage du joueur, prend en parametre le numero du joueur (0-3)
- */
-function redrawPlayer(numJoueur){
-        var i;
-     //  	console.log("redrawPlayer");
-     	$("#titreCartesJoueur").html("Tour du Joueur " + (numJoueur+1));
-        var carteJoueur = "";
-        for(i = 0; i < JoueursTab[numJoueur].length ; i++){
-        	// console.log(JoueursTab[numJoueur]);
-            carteJoueur += "<div draggable=\"true\" id='carte"+ i +"' class=\"cartes\">";
-            carteJoueur += JoueursTab[numJoueur][i].getHtmlTurned();
-            carteJoueur += ("</div>");            
-        } 
-        $("#cartesJoueur").html(carteJoueur);
-        $('#cartesJoueur .c-card').click(function(){onClickCarte($(this).attr("id"));});
-}
-
-
-/*
- *	Rafraichis l'affichage du terrain en fonction du contenu de l'array "terrain"
- */
-function redrawBoard(){
-//	console.log("Debut redrawBoard");
-	var i = 0;
-	$("#plateau").html("<div  id=\"fleche-"+ i + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
-	for(i = 0; i < terrain.length; i++) {
-        console.log(terrain);
-    	$("#plateau").append(terrain[i].getHtml());
-    	$("#plateau").append("<div  id=\"fleche-" + (i+1) + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
-	}
-	$('.flechesInsertion').click(function(){onClickFleche($(this).attr("id"));});
-}
-
-/*
  *	On renvoie un entier aléatoire entre une valeur min (incluse) et une valeur max (exclue).
  */
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-
 
 /*
  *	
