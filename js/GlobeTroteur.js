@@ -104,7 +104,7 @@ function onValidation(){
     redrawPlayer(joueurEnCour); 
     redrawBoard();
     
-    setTimeout(function() {displayBandeauBleu("JOUEUR "+ joueurEnCour + 1);}, dureeDisplay);
+    setTimeout(function() {displayBandeauBleu("JOUEUR "+ (joueurEnCour + 1));}, dureeDisplay);
 }
 
 function findObject(tab, entier){
