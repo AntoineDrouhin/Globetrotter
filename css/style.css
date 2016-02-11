@@ -104,7 +104,6 @@ background-color: #F6FEFE;
     display: inline-block; 
     margin: 5px;
     vertical-align: top;
-    cursor : pointer;
 }
 
 
@@ -117,7 +116,7 @@ background-color: #F6FEFE;
     border-top-right-radius: 10px;
     line-height : 50px;
     text-align : center;
-    cursor: pointer;
+
     font-weight: bold;
 }
 
@@ -125,18 +124,24 @@ background-color: #F6FEFE;
     padding : 5px;
 }
 
-.c-card:hover , .glyphicon-upload:hover {
-    text-shadow: 0 0 12px #0066FF;
-    border : 5px solid black !important ;
+  .glyphicon-upload:hover {
+    color: green;
 }
 
-.c-card:active , .glyphicon-upload:active{
+#cartesJoueur .c-card:hover {
+    text-shadow: 0 0 12px #0066FF;
+    border : 5px solid black !important ;
+    cursor: pointer;
+}
+
+.c-card:active {
     border : 5px solid black;
 
 }
 
 #boutonValidation:hover {
     background-color:lightgreen;
+
 }
 
 #boutonValidation{
