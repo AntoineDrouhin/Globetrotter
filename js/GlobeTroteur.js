@@ -25,6 +25,11 @@ var caracteristiqueAcomparer = "polu";
     // terrain.splice(index, 1) : supprime à cette index
 
 function init() {
+
+    var type = window.location.search.replace("?","");
+    if(type != "")
+        caracteristiqueAcomparer = type;
+
     // remplie la pioche n
     pioche = remplirPioche(cartes);
     // rempli le terrain 
@@ -39,8 +44,24 @@ function init() {
     displayBandeauBleu("Debut de la Partie");
     setTimeout(function() {displayBandeauBleu("Inserer les pays");
 		setTimeout(function() {displayBandeauBleu("par ordre croissant");
-			setTimeout(function() {displayBandeauBleu("De Popullation");}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
+			setTimeout(function() {displayBandeauBleu("De " + texteType());}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
 
+}
+
+function texteType(){
+    if(caracteristiqueAcomparer == "popu"){
+        return "Population";
+    }
+    if(caracteristiqueAcomparer == "polu"){
+        return "Pollution";
+    }
+
+    if(caracteristiqueAcomparer == "surf"){
+        return "Surface";
+    }
+    if(caracteristiqueAcomparer == "pib"){
+        return "PIB";
+    }
 }
 
 function onClickFleche(id){
@@ -103,6 +124,7 @@ function onValidation(){
 
     redrawPlayer(joueurEnCour); 
     redrawBoard();
+    applyInfoGras();
     
     setTimeout(function() {displayBandeauBleu("JOUEUR "+ (joueurEnCour + 1));}, dureeDisplay);
 }
