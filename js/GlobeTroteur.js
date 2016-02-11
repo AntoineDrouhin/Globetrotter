@@ -74,19 +74,22 @@ function onValidation(){
 		return 0;
 	}
 
+    console.log("carte gauche : " + carteGaucheDeLaFleche);
 	var testGauche = testSiLaMiseEstBonne(terrain[parseID(carteGaucheDeLaFleche)] , terrain[convertirIDenIndicePourTerrain(parseID(idCarteClique))], caracteristiqueAcomparer);
 	// console.log("Test Gauche : " + testGauche);
 
+    console.log("INTERR");
 
 	// console.log(JoueursTab[joueurEnCour], parseID(idCarteClique));
 	// console.log(findObject(terrain, parseID(carteDroiteDeLaFleche));
-        console.log(carteDroiteDeLaFleche);
+    // console.log(carteDroiteDeLaFleche);
 	var testDroite = testSiLaMiseEstBonne(terrain[convertirIDenIndicePourTerrain(parseID(idCarteClique))], terrain[parseID(carteDroiteDeLaFleche)] , caracteristiqueAcomparer);
     // console.log("Test Droite : " + testDroite);
     
     // console.log(testDroite);
     validerLaMise((testGauche && testDroite), joueurEnCour ,parseID(idFleche) );
 
+    console.log("LONGUEUR TABLEAU == "  + JoueursTab[joueurEnCour].length);
     
     idCarteClique = undefined;
 	idFleche = undefined;
@@ -133,11 +136,13 @@ function convertirIDenIndicePourTerrain(pID){
 }
 
 function trouverIDCarteGaucheFleche(id){
-	if(id = "fleche-0"){
+    console.log("ID == " +id);
+	if(id == "fleche-0"){
 		carteGaucheDeLaFleche = undefined;
 	}
 	else {
-		carteGaucheDeLaFleche = "carte-" + parseID(id);	
+        var idCarteGauche =  parseInt(parseID(id))-1;
+		carteGaucheDeLaFleche = "carte-" + idCarteGauche;	
 	}
 }
 
@@ -220,7 +225,7 @@ function testSiLaMiseEstBonne(carteGauche , carteDroite, caracteristiqueAcompare
             return false;
         }
     }else if(caracteristiqueAcomparer == "polu"){
-        console.log(carteGauche.polu + " " + carteDroite.polu);
+        console.log(" TESTsIlAmISE === " + carteGauche.polu + " " + carteDroite.polu);
          if(carteGauche.polu <= carteDroite.polu){
             return true;
         }else{
