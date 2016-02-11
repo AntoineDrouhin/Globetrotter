@@ -17,7 +17,7 @@ var carteDroiteDeLaFleche;
 var joueurEnCour = 0;
 var cartePose = 0 ;
 // à changer !!!
-var caracteristiqueAcomparer = "polu";
+var caracteristiqueAcomparer = "pib";
 
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
@@ -25,6 +25,11 @@ var caracteristiqueAcomparer = "polu";
     // terrain.splice(index, 1) : supprime à cette index
 
 function init() {
+
+    var type = window.location.search.replace("?","");
+    if(type != "")
+        caracteristiqueAcomparer = type;
+
     // remplie la pioche n
     pioche = remplirPioche(cartes);
     // rempli le terrain 
@@ -36,11 +41,29 @@ function init() {
     redrawPlayer(0);
     applyInfoGras();
 
+
+
     displayBandeauBleu("Debut de la Partie");
     setTimeout(function() {displayBandeauBleu("Inserer les pays");
 		setTimeout(function() {displayBandeauBleu("par ordre croissant");
-			setTimeout(function() {displayBandeauBleu("De Popullation");}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
+			setTimeout(function() {displayBandeauBleu("De " + texteType());}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
 
+}
+
+function texteType(){
+    if(caracteristiqueAcomparer == "popu"){
+        return "Population";
+    }
+    if(caracteristiqueAcomparer == "polu"){
+        return "Pollution";
+    }
+
+    if(caracteristiqueAcomparer == "surf"){
+        return "Surface";
+    }
+    if(caracteristiqueAcomparer == "pib"){
+        return "PIB";
+    }
 }
 
 function onClickFleche(id){
@@ -61,7 +84,7 @@ function onClickCarte(id){
         $("#" + idCarteClique).css( "border", "1px solid white" );
     }
     idCarteClique = id;
-	console.log("ID Carte cliqué : " + id);
+	// console.log("ID Carte cliqué : " + id);
     $("#" + id).css( "border", "5px solid black" );
     console.log ($("#" + id));
 }
@@ -103,8 +126,9 @@ function onValidation(){
 
     redrawPlayer(joueurEnCour); 
     redrawBoard();
+    applyInfoGras();
     
-    setTimeout(function() {displayBandeauBleu("JOUEUR "+ joueurEnCour + 1);}, dureeDisplay);
+    setTimeout(function() {displayBandeauBleu("JOUEUR "+ (joueurEnCour + 1));}, dureeDisplay);
 }
 
 function findObject(tab, entier){
@@ -286,8 +310,8 @@ function testfinpartie() {
     for(i = 0; i<JoueursTab.length; i++){
         if (JoueursTab[i].length == 0) {
         	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE" );
-	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i) );}, dureeDisplay);        	
-			$("#BANDEAU_BLEU").css( "display", "block" );
+	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i) ); $("#BANDEAU_BLEU").css( "display", "block" );}, dureeDisplay);        	
+			
         }
     }   
 }

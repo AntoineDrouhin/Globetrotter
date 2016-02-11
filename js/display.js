@@ -43,18 +43,26 @@ function displayBandeauBleu(texte){
  *	Rafraichis l'affichage du joueur, prend en parametre le numero du joueur (0-3)
  */
 function redrawPlayer(numJoueur){
-        var i;
-     //  	console.log("redrawPlayer");
-     	$("#titreCartesJoueur").html("Tour du Joueur " + (numJoueur+1));
-        var carteJoueur = "";
-        for(i = 0; i < JoueursTab[numJoueur].length ; i++){
-        	// console.log(JoueursTab[numJoueur]);
-            carteJoueur += "<div draggable=\"true\" id='carte"+ i +"' class=\"cartes\">";
-            carteJoueur += JoueursTab[numJoueur][i].getHtmlTurned();
-            carteJoueur += ("</div>");            
-        } 
-        $("#cartesJoueur").html(carteJoueur);
-        $('#cartesJoueur .c-card').click(function(){onClickCarte($(this).attr("id"));});
+    var i;
+ //  	console.log("redrawPlayer");
+ 	$("#titreCartesJoueur").html("Main du Joueur " + (numJoueur+1));
+    var carteJoueur = "";
+    for(i = 0; i < JoueursTab[numJoueur].length ; i++){
+    	// console.log(JoueursTab[numJoueur]);
+        carteJoueur += "<div draggable=\"true\" id='carte"+ i +"' class=\"cartes\">";
+        carteJoueur += JoueursTab[numJoueur][i].getHtmlTurned();
+        carteJoueur += ("</div>");            
+    } 
+    $("#cartesJoueur").html(carteJoueur);
+    $('#cartesJoueur .c-card').click(function(){onClickCarte($(this).attr("id"));});
+
+
+    for(i=0;i < JoueursTab[numJoueur].length; i++){
+        document.querySelector(("#carte"+i)).addEventListener('dragstart', function(e) {
+               console.log($(this).find(':first').attr("id"));
+           onClickCarte($(this).find(':first').attr("id"));
+        }, false);
+    }
 }
 
 
@@ -64,11 +72,46 @@ function redrawPlayer(numJoueur){
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
 	var i = 0;
-	$("#plateau").html("<div  id=\"fleche-"+ i + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
-	for(i = 0; i < terrain.length; i++) {
-        //console.log(terrain);
+	$("#plateau").html("<div id=\"fleche-"+ i +"\" class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
+	console.log(document.querySelector("#fleche-"+i));
+
+    document.querySelector(("#fleche-"+i)).addEventListener('dragover', function(e) {
+        e.preventDefault(); // Annule l'interdiction de drop
+    }, false);
+
+    document.querySelector(("#fleche-"+i)).addEventListener('drop', function(e) {
+        e.preventDefault(); // Cette méthode est toujours nécessaire pour éviter une éventuelle redirection inattendue
+        onClickFleche($(this).attr("id"));
+    }, false);
+
+    for(i = 0; i < terrain.length; i++) {
+        console.log(terrain); 
     	$("#plateau").append(terrain[i].getHtml());
     	$("#plateau").append("<div  id=\"fleche-" + (i+1) + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
-	}
+        
+        document.querySelector("#fleche-"+(i+1)).addEventListener('dragover', function(e) {
+            e.preventDefault(); // Annule l'interdiction de drop
+        }, false);
+
+        document.querySelector(("#fleche-"+(i+1))).addEventListener('drop', function(e) {
+            e.preventDefault();
+            console.log("E: "+e);
+            console.log($(this).attr("id"));
+            onClickFleche($(this).attr("id"));
+        }, false);        
+	
+    }
 	$('.flechesInsertion').click(function(){onClickFleche($(this).attr("id"));});
+
 }
+
+
+
+
+
+
+
+
+
+
+
