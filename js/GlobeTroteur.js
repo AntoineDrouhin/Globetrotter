@@ -25,7 +25,6 @@ var caracteristiqueAcomparer = "polu";
     // terrain.splice(index, 1) : supprime à cette index
 
 function init() {
-    var i;
     // remplie la pioche n
     pioche = remplirPioche(cartes);
     // rempli le terrain 
@@ -101,9 +100,11 @@ function onValidation(){
 
   	testfinpartie();
 
+
     redrawPlayer(joueurEnCour); 
     redrawBoard();
-       
+    
+    setTimeout(function() {displayBandeauBleu("JOUEUR "+ joueurEnCour + 1);}, dureeDisplay);
 }
 
 function findObject(tab, entier){
@@ -285,7 +286,7 @@ function testfinpartie() {
     for(i = 0; i<JoueursTab.length; i++){
         if (JoueursTab[i].length == 0) {
         	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE" );
-	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i+1) );}, dureeDisplay);        	
+	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i) );}, dureeDisplay);        	
 			$("#BANDEAU_BLEU").css( "display", "block" );
         }
     }   
