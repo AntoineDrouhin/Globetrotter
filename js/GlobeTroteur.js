@@ -35,8 +35,12 @@ function init() {
 
     redrawBoard();
     redrawPlayer(0);
+    applyInfoGras();
 
-    //$('#boutonValidation').click(function(){onValidation()});
+    displayBandeauBleu("Debut de la Partie");
+    setTimeout(function() {displayBandeauBleu("Inserer les pays");
+		setTimeout(function() {displayBandeauBleu("par ordre croissant");
+			setTimeout(function() {displayBandeauBleu("De Popullation");}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
 
 }
 
@@ -51,19 +55,16 @@ function onClickFleche(id){
         setTimeout(onValidation, dureeDisplay);
         //onValidation();
     }
-	
 }
 
 function onClickCarte(id){
 	if(typeof idCarteClique != "undefined"){
         $("#" + idCarteClique).css( "border", "1px solid white" );
     }
-    
     idCarteClique = id;
 	console.log("ID Carte cliqué : " + id);
     $("#" + id).css( "border", "5px solid black" );
     console.log ($("#" + id));
-   
 }
 
 
@@ -98,11 +99,7 @@ function onValidation(){
     joueurEnCour = (joueurEnCour + 1) % 4;
     cartePose = 0;
 
-    winner = testfinpartie();
-    if(winner != -1){
-    	displayFinPartie(winner);
-    	return 0;
-    }
+  	testfinpartie();
 
     redrawPlayer(joueurEnCour); 
     redrawBoard();
@@ -286,10 +283,10 @@ function testfinpartie() {
 	var i;
     for(i = 0; i<JoueursTab.length; i++){
         if (JoueursTab[i].length == 0) {
-            return(i);
+        	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DU JOUEUR "+ i );
+			$("#BANDEAU_BLEU").css( "display", "block" );
         }
     }   
-    return -1;
 }
 
 // function pause(){
