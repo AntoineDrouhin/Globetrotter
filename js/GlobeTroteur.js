@@ -277,9 +277,9 @@ function redrawPlayer(numJoueur){
         var carteJoueur = "";
         for(i = 0; i < JoueursTab[numJoueur].length ; i++){
         	// console.log(JoueursTab[numJoueur]);
-            carteJoueur += "<span id='carte"+ i +"' class=\"cartespan\">";
-            carteJoueur += JoueursTab[numJoueur][i].getHtml();
-            carteJoueur += ("</span>");            
+            carteJoueur += "<div draggable=\"true\" id='carte"+ i +"' class=\"cartes\">";
+            carteJoueur += JoueursTab[numJoueur][i].getHtmlTurned();
+            carteJoueur += ("</div>");            
         } 
         $("#cartesJoueur").html(carteJoueur);
         $('#cartesJoueur .c-card').click(function(){onClickCarte($(this).attr("id"));});

@@ -30,6 +30,7 @@ cCardObject.prototype.getHtml =  function() {
 
 cCardObject.prototype.initHtmlTurned = function() {
     this.$elt = $("#TEAMPLATE_CARD_HTML_TURNED").clone();
+    this.$elt.find(".c-card").attr("id", "carte-" + this.id);
     //this.$elt.find("c-card").attr("id", this.id);
     this.$elt.find(".c-header").html(this.name);
 };
