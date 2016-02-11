@@ -17,7 +17,7 @@ var carteDroiteDeLaFleche;
 var joueurEnCour = 0;
 var cartePose = 0 ;
 // à changer !!!
-var caracteristiqueAcomparer = "polu";
+var caracteristiqueAcomparer = "pib";
 
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
@@ -40,6 +40,8 @@ function init() {
     redrawBoard();
     redrawPlayer(0);
     applyInfoGras();
+
+
 
     displayBandeauBleu("Debut de la Partie");
     setTimeout(function() {displayBandeauBleu("Inserer les pays");
@@ -82,7 +84,7 @@ function onClickCarte(id){
         $("#" + idCarteClique).css( "border", "1px solid white" );
     }
     idCarteClique = id;
-	console.log("ID Carte cliqué : " + id);
+	// console.log("ID Carte cliqué : " + id);
     $("#" + id).css( "border", "5px solid black" );
     console.log ($("#" + id));
 }
@@ -308,8 +310,8 @@ function testfinpartie() {
     for(i = 0; i<JoueursTab.length; i++){
         if (JoueursTab[i].length == 0) {
         	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE" );
-	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i) );}, dureeDisplay);        	
-			$("#BANDEAU_BLEU").css( "display", "block" );
+	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i) ); $("#BANDEAU_BLEU").css( "display", "block" );}, dureeDisplay);        	
+			
         }
     }   
 }
