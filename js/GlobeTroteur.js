@@ -190,6 +190,7 @@ function jouerCarte(numJoueur , indice , indiceFinal){
 // et on enlève la carte sur le terrain
 function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
     if(!aReussiSaMise){
+        pioche.push(terrain[indiceFinal]);
         terrain.splice(indiceFinal, 1);
         distribuerCarte(JoueursTab[numJoueur]);
         redrawPlayer(numJoueur);
