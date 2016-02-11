@@ -38,7 +38,6 @@
             pib  : 312000,
             link :"http://flags.fmcdn.net/data/flags/normal/gr.png"
     },
-
     {
             id : 5,
             name : "Corée du Sud",
@@ -77,7 +76,6 @@
             polu : 1.7,
             pib  : 101800,
             link :"http://www.drapeauxdespays.fr/data/flags/ultra/ma.png"
-    },
 
     {
             id : 9,
@@ -97,7 +95,6 @@
             polu : 0.1,
             pib  : 18300,
             link :"http://medias.doublet.pro/medias/images/produits/874b2958c14a5f79b23f018f21c37c60.jpg"
-    },
 
     {
             id : 11,
@@ -117,7 +114,6 @@
             polu : 4.1,
             pib  : 345600,
             link :"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/langfr-225px-Flag_of_Thailand.svg.png"
-    },
 
     {
             id : 13,
@@ -128,7 +124,6 @@
             pib  : 422000,
             link :"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/langfr-225px-Flag_of_South_Africa.svg.png"
     },
-
     {
             id : 14,
             name : "France",
@@ -158,7 +153,6 @@
             pib  : 183400,
             link :"http://www.drapeau-dz.com/sites/default/files/drapeau-algerien.jpg"
     },
-
     {
             id   :  17,
             name : "Nouvelle-Zélande",
@@ -168,7 +162,6 @@
             pib  : 168800,
             link :"http://media.20minutes.fr/2015/2000px-flag_of_new_zealandsvg.png"
     },
-
     {
             id   :  18,
             name : "Colombie",
@@ -227,8 +220,8 @@
             polu : 5.4,
             pib  : 435200,
             link :"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/langfr-225px-Flag_of_Argentina.svg.png"
-    },
 
+    },
     {
             id   :  24,
             name : "Egypte",
@@ -308,6 +301,16 @@
             link :"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/langfr-225px-Flag_of_Israel.svg.png"
     },
 
+    {
+            id : 32,
+            name : "Canada",
+            surf : 9984670,
+            popu : 34300083,
+            polu : 15.6,
+            pib  : 1759000,
+            img: "http://www.goodmorningcrowdfunding.com/wp-content/uploads/2014/08/Br%C3%A9sil.gif"
+
+    },
     {
             id : 33,
             name : "Portugal",
