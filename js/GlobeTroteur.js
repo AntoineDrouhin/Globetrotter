@@ -7,6 +7,7 @@ var joueur4 = [];
 var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
+var dureeDisplay = 1000;
 
 var idCarteClique;
 var idFleche;
@@ -16,7 +17,7 @@ var carteDroiteDeLaFleche;
 var joueurEnCour = 0;
 var cartePose = 0 ;
 // à changer !!!
-var caracteristiqueAcomparer = "popu";
+var caracteristiqueAcomparer = "polu";
 
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
@@ -35,7 +36,7 @@ function init() {
     redrawBoard();
     redrawPlayer(0);
 
-    $('#boutonValidation').click(function(){onValidation()});
+    //$('#boutonValidation').click(function(){onValidation()});
 
 }
 
@@ -47,8 +48,8 @@ function onClickFleche(id){
         trouverIDCarteDroiteFleche(id);
         jouerCarte(joueurEnCour,convertirIDenIndice(parseID(idCarteClique)),parseID(idFleche));
         cartePose = 1;
-        setTimeout(function() {}, 2000);
-        onValidation();
+        setTimeout(onValidation, dureeDisplay);
+        //onValidation();
     }
 	
 }

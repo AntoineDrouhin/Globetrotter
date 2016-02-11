@@ -166,6 +166,47 @@ h3 {
     margin-top : 20px;
 }
 
+#BANDEAU_ROUGE{
+    background-color: rgba(255,75,0,0.4);
+}
+
+#BANDEAU_VERT{
+    background-color: rgba(0,255,0,0.4);
+}
+#BANDEAU_BLEU{
+    background-color: rgba(0,0,255,0.4);
+}
+
+#TEXTE_BANDEAU_ROUGE{
+    color: rgb(255, 0, 0);
+}
+
+#TEXTE_BANDEAU_VERT{
+    color: rgb(0, 255, 0);
+}
+
+#TEXTE_BANDEAU_BLEU{
+    color: rgb(0, 0, 255);
+}
+.bandeau{
+    display: none;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    top: 150px;
+    z-index: 2;
+    padding-top: 30px;
+    
+}
+
+.texte_bandeau{
+    font-size: 150px;
+    font-family: Georgia, serif;
+    opacity: 1.0;
+    vertical-align: center;
+    text-align: center;
+}
+
 
 
 
