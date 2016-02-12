@@ -8,6 +8,7 @@ var cCardObject = function(data) {
         this.popu = data.popu;
         this.polu = data.polu;
         this.pib  = data.pib;
+        this.link  = data.link;
         this.initHtml();
         this.initHtmlTurned();
     }
@@ -33,6 +34,7 @@ cCardObject.prototype.initHtmlTurned = function() {
     this.$elt.find(".c-card").attr("id", "carte-" + this.id);
     //this.$elt.find("c-card").attr("id", this.id);
     this.$elt.find(".c-header").html(this.name);
+    this.$elt.find(".c-link img").attr("src",this.link);
 };
 
 
