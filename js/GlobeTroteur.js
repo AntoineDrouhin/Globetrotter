@@ -8,6 +8,8 @@ var JoueursTab = [joueur1,joueur2,joueur3,joueur4];
 var terrain = [];
 var pioche = [];
 var dureeDisplay = 1000;
+var nbCarte = 4;
+var nbJoueur = 2; 
 
 var idCarteClique;
 var idFleche;
@@ -26,9 +28,13 @@ var caracteristiqueAcomparer = "pib";
 
 function init() {
 
-    var type = window.location.search.replace("?","");
-    if(type != "")
+    var param = window.location.search.replace("?","");
+    param = param.split("&");
+
+    if(param[0] != "")
         caracteristiqueAcomparer = type;
+    if(param[1] != "" && param > 0  && param < 4)
+        nbJoueur = param[1];
 
     // remplie la pioche n
     pioche = remplirPioche(cartes);
@@ -118,7 +124,7 @@ function onValidation(){
 	idFleche = undefined;
 	carteGaucheDeLaFleche = undefined;
 	carteDroiteDeLaFleche = undefined;
-    joueurEnCour = (joueurEnCour + 1) % 4;
+    joueurEnCour = (joueurEnCour + 1) % nbJoueur;
     cartePose = 0;
 
   	testfinpartie();
@@ -195,8 +201,8 @@ function distribuerCarte( tab ){
 }
 
 function distribuerMain(){
-	for(i=0; i < 4 ;i++){
-		for(j=0;j< 4;j++){
+	for(i=0; i < nbJoueur ;i++){
+		for(j=0;j< nbCarte;j++){
 			distribuerCarte(JoueursTab[i]);
 		}
 	}
