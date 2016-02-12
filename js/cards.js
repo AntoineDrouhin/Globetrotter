@@ -76,6 +76,7 @@
             polu : 1.7,
             pib  : 101800,
             link :"http://www.drapeauxdespays.fr/data/flags/ultra/ma.png"
+    },
 
     {
             id : 9,
@@ -95,7 +96,7 @@
             polu : 0.1,
             pib  : 18300,
             link :"http://medias.doublet.pro/medias/images/produits/874b2958c14a5f79b23f018f21c37c60.jpg"
-
+    },
     {
             id : 11,
             name : "Liban",
@@ -114,7 +115,7 @@
             polu : 4.1,
             pib  : 345600,
             link :"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/langfr-225px-Flag_of_Thailand.svg.png"
-
+    },
     {
             id : 13,
             name : "Afrique du Sud",
@@ -131,7 +132,7 @@
             popu : 65800000,
             polu : 5.6,
             pib  : 2808000,
-            link :"http://www.codepostalpro.com/images/france-drapeau.png"
+            link :"http://iwallpapers.free.fr/upload/2014/07/02/20140702221559-c3cab829.jpg"
     },
 
     {
@@ -141,7 +142,7 @@
             popu : 34300083,
             polu : 15.6,
             pib  : 1759000,
-            link :"http://www.free-country-flags.com/countries/Canada/1/medium/Canada.png"
+            link :"http://img0.mxstatic.com/wallpapers/6c74665739fa169f95ace4f11bb7e611_large.jpeg"
     },
 
     {
@@ -301,16 +302,6 @@
             link :"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/langfr-225px-Flag_of_Israel.svg.png"
     },
 
-    {
-            id : 32,
-            name : "Canada",
-            surf : 9984670,
-            popu : 34300083,
-            polu : 15.6,
-            pib  : 1759000,
-            img: "http://www.goodmorningcrowdfunding.com/wp-content/uploads/2014/08/Br%C3%A9sil.gif"
-
-    },
     {
             id : 33,
             name : "Portugal",

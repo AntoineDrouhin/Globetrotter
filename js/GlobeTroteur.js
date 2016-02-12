@@ -29,20 +29,15 @@ var caracteristiqueAcomparer = "pib";
 function init() {
 
     var param = window.location.search.replace("?","");
+    console.log(param);
     param = param.split("&");
 
     if(param[0] != "")
-        caracteristiqueAcomparer = type;
-    if(param[1] != "" && param > 0  && param < 4){
+        caracteristiqueAcomparer = param[0];
+    if(param[1] != "" && param[1] > 0  && param[1] < 4){
         nbJoueur = param[1];
-        var JoueursTab = [];
-        var k;
-        for(k=0;k<JoueursTab;k++){
-            var joueur = [];
-            JoueursTab.push[joueur];
-        }
     }
-    console.log(JoueursTab);
+    console.log("JoueursTab" + nbJoueur);
     // remplie la pioche n
     pioche = remplirPioche(cartes);
     // rempli le terrain 
