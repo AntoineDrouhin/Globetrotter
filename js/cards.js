@@ -146,7 +146,7 @@
             popu : 34300083,
             polu : 15.6,
             pib  : 1759000,
-            link :"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Canada_(Pantone).svg/langfr-225px-Flag_of_Canada_(Pantone).svg.png"
+            link :"http://www.free-country-flags.com/countries/Canada/1/medium/Canada.png"
     },
 
     {
@@ -335,7 +335,7 @@
             popu : 10438453,
             polu : 9.2,
             pib  : 529000,
-            link :"http://i1.wp.com/jeretiens.net/wp-content/uploads/2014/07/Drapeau_belge_belgique2.gif"
+            link :"http://www.free-country-flags.com/countries/Belgium/1/medium/Belgium.png"
     }
 ];
 
