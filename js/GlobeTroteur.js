@@ -33,9 +33,16 @@ function init() {
 
     if(param[0] != "")
         caracteristiqueAcomparer = type;
-    if(param[1] != "" && param > 0  && param < 4)
+    if(param[1] != "" && param > 0  && param < 4){
         nbJoueur = param[1];
-
+        var JoueursTab = [];
+        var k;
+        for(k=0;k<JoueursTab;k++){
+            var joueur = [];
+            JoueursTab.push[joueur];
+        }
+    }
+    console.log(JoueursTab);
     // remplie la pioche n
     pioche = remplirPioche(cartes);
     // rempli le terrain 
@@ -321,11 +328,5 @@ function testfinpartie() {
         }
     }   
 }
-
-// function pause(){
-//     while(validation == 0 || idCarteClique != undefined || idFleche != undefined){
-//         setTimeout(function() {}, 1000);
-//     }
-// }
 
 
