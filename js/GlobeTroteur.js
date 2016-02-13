@@ -10,6 +10,7 @@ var pioche = [];
 var dureeDisplay = 1000;
 var nbCarte = 4;
 var nbJoueur = 2; 
+var joueurVictorieu = 0;
 
 var idCarteClique;
 var idFleche;
@@ -20,6 +21,7 @@ var joueurEnCour = 0;
 var cartePose = 0 ;
 // à changer !!!
 var caracteristiqueAcomparer = "pib";
+
 
     // terrain.push() -- a la fin
     // terrain.pop() -- met à la fin et la supprime
@@ -53,8 +55,8 @@ function init() {
 
     displayBandeauBleu("Debut de la Partie");
     setTimeout(function() {displayBandeauBleu("Inserer les pays");
-		setTimeout(function() {displayBandeauBleu("par ordre croissant");
-			setTimeout(function() {displayBandeauBleu("De " + texteType());}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
+	setTimeout(function() {displayBandeauBleu("par ordre croissant");
+	setTimeout(function() {displayBandeauBleu("De " + texteType());}, dureeDisplay)} , dureeDisplay);} , dureeDisplay);
 
 }
 
@@ -118,7 +120,7 @@ function onValidation(){
     // console.log("Test Droite : " + testDroite);
     
     // console.log(testDroite);
-    validerLaMise((testGauche && testDroite), joueurEnCour ,parseID(idFleche) );
+    var unJoueurAgagnee = validerLaMise((testGauche && testDroite), joueurEnCour ,parseID(idFleche) );
 
     console.log("LONGUEUR TABLEAU == "  + JoueursTab[joueurEnCour].length);
     
@@ -129,14 +131,15 @@ function onValidation(){
     joueurEnCour = (joueurEnCour + 1) % nbJoueur;
     cartePose = 0;
 
-  	testfinpartie();
 
+    if(!unJoueurAgagnee){
+        redrawPlayer(joueurEnCour); 
+        redrawBoard();
+        applyInfoGras();
+        
+        setTimeout(function() {displayBandeauBleu("JOUEUR "+ (joueurEnCour + 1));}, dureeDisplay);
+    }
 
-    redrawPlayer(joueurEnCour); 
-    redrawBoard();
-    applyInfoGras();
-    
-    setTimeout(function() {displayBandeauBleu("JOUEUR "+ (joueurEnCour + 1));}, dureeDisplay);
 }
 
 function findObject(tab, entier){
@@ -230,7 +233,15 @@ function validerLaMise(aReussiSaMise ,numJoueur , indiceFinal ){
         redrawBoard();
         displayBandeauRouge("False");
     }else{
-        displayBandeauVert("Good");
+        if(testfinpartie()){
+            $("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE JOUEUR "+ (joueurVictorieu) );
+            $("#BANDEAU_BLEU").css( "display", "block" );
+            return true;
+        }else{
+            displayBandeauVert("Good");
+        }
+      
+            
     }
 }
 
@@ -313,15 +324,17 @@ function getRandomInt(min, max) {
 /*
  *	
  */
+
 function testfinpartie() {
 	var i;
-    for(i = 0; i<JoueursTab.length; i++){
+    for(i = 0; i<nbJoueur; i++){
+        console.log("joueurTab[i] ==== " + JoueursTab[i].length);
         if (JoueursTab[i].length == 0) {
-        	$("#TEXTE_BANDEAU_BLEU").html( "VICTOIRE DE" );
-	         setTimeout(function() {$("#TEXTE_BANDEAU_BLEU").html( "JOUEUR "+ (i) ); $("#BANDEAU_BLEU").css( "display", "block" );}, dureeDisplay);        	
-			
+            joueurVictorieu = (i+1);
+			return true;
         }
-    }   
+    }
+    return false;  
 }
 
 
