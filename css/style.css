@@ -12,30 +12,30 @@
  */
 body {
     background-image: url(../img/jungle.jpg);
-	padding-top: 70px;
+    padding-top: 70px;
 }
 
 .page-header {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 .panel-body {
-	padding-top: 0;
+    padding-top: 0;
 }
 
 .regulated-size {
-	width: 65%;
+    width: 65%;
 }
 
 body {
-	background-color: lightblue;
+    background-color: lightblue;
 }
 
 .active,
 .navbar-brand,
 .navbar-inverse {
-	background: url(../img/papier.jpg);
-	color: #000000;
+    background: url(../img/papier.jpg);
+    color: #000000;
 }
 
 .navbar .navbar-brand {
@@ -57,26 +57,26 @@ body {
 
 .centrage
 {
-	text-align: center;
+    text-align: center;
 }
 
 .adroite
 {
-	text-align: right;
-	padding-right: 10%;
+    text-align: right;
+    padding-right: 10%;
 }
 
 #boxeur
 {
-	margin-bottom: 3%;
+    margin-bottom: 3%;
 }
 
 .bleuclair {
-	background-color: #9CE3FF;
-	border-radius: 5%;
-	padding-top: 2%;
-	border: 2px white solid;
-	min-height: 375px;
+    background-color: #9CE3FF;
+    border-radius: 5%;
+    padding-top: 2%;
+    border: 2px white solid;
+    min-height: 375px;
 }
 
 
@@ -87,7 +87,7 @@ body {
 }
 
 .souligne {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 .cartes{
@@ -221,15 +221,15 @@ h3 {
 }
 
 #BANDEAU_ROUGE{
-    background-color: rgba(255,75,0,0.6);
+    background-image: url(../img/3.png);
 }
 
 #BANDEAU_VERT{
-    background-color: rgba(0,255,0,0.6);
+    background-image: url(../img/2.png);
 }
 #BANDEAU_BLEU{
-    background-color: rgba(0,0,255,0.6);
-}
+     background-image: url(../img/1.png);
+ }
 
 #TEXTE_BANDEAU_ROUGE{
     color: rgb(255, 255, 255);
@@ -241,10 +241,12 @@ h3 {
 
 #TEXTE_BANDEAU_BLEU{
     color: rgb(255, 255, 255);
+    opacity: 1;
+
 }
 .bandeau{
     display: none;
-    height: 300px;
+    height: 200px;
     width: 100%;
     position: absolute;
     top: 150px;
