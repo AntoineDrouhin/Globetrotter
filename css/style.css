@@ -109,6 +109,20 @@ body {
     vertical-align: top;
 }
 
+.glyphicon-download {
+    font-size: 40px;
+    font-size: 40px;
+    margin-top: 90px;
+    vertical-align: top;
+}
+
+.glyphicon-plus-sign  {
+      font-size: 40px;
+    font-size: 40px;
+    margin-top: 90px;
+    vertical-align: top;
+}
+
 #TEAMPLATE_CARD_HTML, #TEAMPLATE_CARD_HTML_TURNED {
     display : none;
 }
@@ -149,8 +163,14 @@ body {
     padding : 5px;
 }
 
-  .glyphicon-upload:hover {
+.glyphicon-upload:hover {
     color: white;
+}
+.glyphicon-download:hover {
+     color: white;
+}
+.glyphicon-plus-sign:hover {
+    color:white;
 }
 
 #cartesJoueur .c-card:hover {

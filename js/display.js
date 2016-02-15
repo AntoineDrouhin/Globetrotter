@@ -72,7 +72,7 @@ function redrawPlayer(numJoueur){
 function redrawBoard(){
 //	console.log("Debut redrawBoard");
 	var i = 0;
-	$("#plateau").html("<div id=\"fleche-"+ i +"\" class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
+	$("#plateau").html("<div id=\"fleche-"+ i +"\" class=\"glyphicon glyphicon-download flechesInsertion\"></div>");
 	console.log(document.querySelector("#fleche-"+i));
 
     document.querySelector(("#fleche-"+i)).addEventListener('dragover', function(e) {
@@ -87,7 +87,12 @@ function redrawBoard(){
     for(i = 0; i < terrain.length; i++) {
         console.log(terrain); 
     	$("#plateau").append(terrain[i].getHtml());
-    	$("#plateau").append("<div  id=\"fleche-" + (i+1) + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>");
+        if(i == terrain.length-1){
+           $("#plateau").append("<div  id=\"fleche-" + (i+1) + "\"class=\"glyphicon glyphicon-upload flechesInsertion\"></div>"); 
+       }else{
+           $("#plateau").append("<div  id=\"fleche-" + (i+1) + "\"class=\"glyphicon glyphicon-plus-sign flechesInsertion\"></div>"); 
+       }
+    	
         
         document.querySelector("#fleche-"+(i+1)).addEventListener('dragover', function(e) {
             e.preventDefault(); // Annule l'interdiction de drop
