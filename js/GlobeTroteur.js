@@ -36,7 +36,7 @@ function init() {
 
     if(param[0] != "")
         caracteristiqueAcomparer = param[0];
-    if(param[1] != "" && param[1] > 0  && param[1] < 4){
+    if(param[1] != "" && param[1] > 0  && param[1] <= 4){
         nbJoueur = param[1];
     }
     console.log("JoueursTab" + nbJoueur);
