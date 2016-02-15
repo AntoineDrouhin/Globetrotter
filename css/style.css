@@ -221,15 +221,15 @@ h3 {
 }
 
 #BANDEAU_ROUGE{
-    background-image: url("http://soocurious.com/fr/wp-content/uploads/2014/10/islande-lave-drone.jpg")
+    background-image: url(../img/1.png);
 }
 
 #BANDEAU_VERT{
-    background-image: url("http://images.travelpod.com/tripwow/photos/ta-00a2-f794-32f3/in-the-jungle-the-mighty-jungle-oahu-united-states+1152_12856892296-tpfil02aw-3551.jpg")
+    background-image: url(../img/1.png);
 }
 #BANDEAU_BLEU{
-     background-image: url("http://img0.mxstatic.com/wallpapers/2d23f87a7faffd8c854b9f568e5718a1_large.jpeg");
-}
+     background-image: url(../img/1.png);
+ }
 
 #TEXTE_BANDEAU_ROUGE{
     color: rgb(255, 255, 255);
