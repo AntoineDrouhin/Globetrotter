@@ -1,5 +1,10 @@
 # Globetrotter
 
+Projet de réalisation d'un jeu en cours d'IHM. L3 Miage Paris 1 Panthéon Sorbonne. 
+Classé 2eme. 
+
+
+
 ##Info :
 
 * **Pour changer les cartes** Changer dans l'actualisation de l'affichage la ligne (GlobeTrotter : )
